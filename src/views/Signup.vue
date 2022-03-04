@@ -12,7 +12,7 @@ export default {
       axios
         .post("/users", this.newUserParams)
         .then((response) => {
-          console.log("New user created!", response.data);
+          console.log("Status:", response.status, "- New user created!");
           this.$router.push("/login");
         })
         .catch((error) => {
@@ -44,11 +44,11 @@ export default {
       </div>
       <div>
         <label>Password:</label>
-        <input type="text" v-model="newUserParams.password" />
+        <input type="password" v-model="newUserParams.password" />
       </div>
       <div>
         <label>Confirm password:</label>
-        <input type="text" v-model="newUserParams.password_confirmation" />
+        <input type="password" v-model="newUserParams.password_confirmation" />
       </div>
       <input type="submit" value="Create Account" />
     </form>
