@@ -1,14 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import FavoritesIndex from "../views/FavoritesIndex.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import UsersShow from "../views/UsersShow.vue";
+import AnimesIndex from "../views/AnimesIndex.vue";
+import UsersEdit from "../views/UsersEdit.vue";
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "FavoritesIndex",
+    component: FavoritesIndex,
   },
   {
     path: "/signup",
@@ -24,6 +27,26 @@ const routes = [
     path: "/logout",
     name: "Logout",
     component: Logout,
+  },
+  {
+    path: "/logout",
+    name: "Logout",
+    component: Logout,
+  },
+  {
+    path: "/me",
+    name: "UsersShow",
+    component: UsersShow,
+  },
+  {
+    path: "/search",
+    name: "AnimesIndex",
+    component: AnimesIndex,
+  },
+  {
+    path: "/me/edit",
+    name: "UsersEdit",
+    component: UsersEdit,
   },
 ];
 
