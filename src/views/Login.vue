@@ -14,7 +14,7 @@ export default {
         .then((response) => {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          console.log("User successfully logged in!", response.data);
+          console.log("User successfully logged in!");
           this.$router.push("/");
         })
         .catch((error) => {
@@ -39,7 +39,7 @@ export default {
       </div>
       <div>
         <label>Password</label>
-        <input type="text" v-model="newSessionParams.password" />
+        <input type="password" v-model="newSessionParams.password" />
       </div>
       <input type="submit" value="Login!" />
     </form>
