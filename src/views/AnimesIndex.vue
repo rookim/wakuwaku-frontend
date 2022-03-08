@@ -28,12 +28,15 @@ export default {
     },
     addToFavorites: function (id) {
       this.newFavoriteParams["tvmaze_id"] = id;
-      console.log(this.newFavoriteParams);
       axios.post("/favorites", this.newFavoriteParams).then((response) => {
-        console.log("Successfully added to Favorites:", response.data.tvmaze_anime.name);
+        console.log("Successfully added to Favorites:", response.data.show.name);
       });
     },
-    removeFromFavorites: function () {},
+    removeFromFavorites: function (favoritesId) {
+      axios.delete(`/favorites/${favoritesId}`).then((response) => {
+        console.log(response.data.message);
+      });
+    },
     showAnime: function (anime) {
       this.currentAnime["name"] = anime.show.name;
       this.currentAnime["summary"] = anime.show.summary;
@@ -60,7 +63,7 @@ export default {
       <!-- only one of the 2 buttons below show up! -->
       <!-- button to add to favorites -->
       <button v-if="anime.favorited == false" v-on:click="addToFavorites(anime.show.id)">♡</button>
-      <button v-if="anime.favorited == true" v-on:click="removeFromFavorites()">♥</button>
+      <button v-if="anime.favorited == true" v-on:click="removeFromFavorites(anime.favoritesId)">♥</button>
       <!-- button to remove from favorites -->
       <br />
       <br />
