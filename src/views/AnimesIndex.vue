@@ -1,11 +1,7 @@
 <script>
 import axios from "axios";
-import SeeAnime from "@/components/SeeAnime.vue";
 
 export default {
-  components: {
-    SeeAnime,
-  },
   data: function () {
     return {
       message: "Search anime :D",
@@ -14,6 +10,7 @@ export default {
       empty: false,
       newFavoriteParams: {},
       removeFavoriteParams: {},
+      currentAnime: {},
     };
   },
   created: function () {},
@@ -37,6 +34,15 @@ export default {
       });
     },
     removeFromFavorites: function () {},
+    showAnime: function (anime) {
+      this.currentAnime["name"] = anime.show.name;
+      this.currentAnime["summary"] = anime.show.summary;
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("</p>", "");
+      this.currentAnime["image"] = anime.show.image.medium;
+      console.log("Anime:", this.currentAnime);
+      document.querySelector("#anime-details").showModal();
+    },
   },
 };
 </script>
@@ -48,20 +54,30 @@ export default {
     <button v-on:click="submit()">Search</button>
     <br />
     <br />
+    <br />
     <div v-if="empty">No anime found :(</div>
     <div v-for="anime in animes" v-bind:key="anime.id">
-      <!-- REMOVE LATER (for reference) -->
-      <p>{{ anime.show.id }}</p>
       <!-- only one of the 2 buttons below show up! -->
       <!-- button to add to favorites -->
       <button v-if="anime.favorited == false" v-on:click="addToFavorites(anime.show.id)">♡</button>
-      <!-- button to remove from favorites -->
       <button v-if="anime.favorited == true" v-on:click="removeFromFavorites()">♥</button>
+      <!-- button to remove from favorites -->
       <br />
       <br />
-      <SeeAnime :tacocat="anime" />
+      <img @click="showAnime(anime)" :src="anime.show.image.medium" alt="" />
+      <br />
       <h3>{{ anime.show.name }}</h3>
+      <br />
     </div>
+
+    <dialog id="anime-details">
+      <form method="dialog">
+        <h2>{{ currentAnime.name }}</h2>
+        <img :src="currentAnime.image" alt="" />
+        <p>{{ currentAnime.summary }}</p>
+        <button>Close</button>
+      </form>
+    </dialog>
   </div>
 </template>
 
