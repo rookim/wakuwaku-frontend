@@ -1,17 +1,14 @@
 <script>
 import axios from "axios";
-import SeeFavoritesAnime from "@/components/SeeFavoritesAnime.vue";
 
 export default {
-  components: {
-    SeeFavoritesAnime,
-  },
   data: function () {
     return {
       message: "You're currently watching...",
       msgLoading: "",
       message2: "Loading... (Unless you need to log in)",
       favorites: [],
+      currentAnime: {},
     };
   },
   created: function () {
@@ -35,6 +32,19 @@ export default {
         this.favorites = this.favorites.filter((item) => item !== favorite);
       });
     },
+    showAnime: function (anime) {
+      this.currentAnime["name"] = anime.show.name;
+      this.currentAnime["summary"] = anime.show.summary;
+      // IT SMELLS WET IN HERE
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("</p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<br />", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("</p>", "");
+      this.currentAnime["image"] = anime.show.image.medium;
+      console.log("Anime:", this.currentAnime);
+      document.querySelector("#anime-details").showModal();
+    },
   },
 };
 </script>
@@ -43,7 +53,27 @@ export default {
   <div class="favorites-index">
     <h1 v-if="favorites.length != 0">{{ message }}</h1>
     <h1 v-if="favorites.length == 0">{{ message2 }}</h1>
-    <SeeFavoritesAnime :tacocat="favorites" @edit-list="removeAnime" />
+    <br />
+    <div v-for="favorite in favorites" v-bind:key="favorite.id">
+      <img v-on:click="showAnime(favorite)" :src="favorite.show.image.medium" alt="" />
+      <h2>{{ favorite.show.name }}</h2>
+      <small>Season {{ favorite.show.next_ep.season }}</small>
+      <p>Coming up: Episode {{ favorite.show.next_ep.number }} - {{ favorite.show.next_ep.name }}</p>
+      <p>Time: {{ favorite.show.next_ep.airdate }} at {{ favorite.show.next_ep.airtime }}</p>
+      <button @click="showAnime(favorite)">Remove</button>
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+    <dialog id="anime-details">
+      <form method="dialog">
+        <h2>{{ currentAnime.name }}</h2>
+        <img :src="currentAnime.image" alt="" />
+        <p>{{ currentAnime.summary }}</p>
+        <button>Close</button>
+      </form>
+    </dialog>
   </div>
 </template>
 
