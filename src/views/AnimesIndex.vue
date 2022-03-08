@@ -10,6 +10,7 @@ export default {
       empty: false,
       newFavoriteParams: {},
       removeFavoriteParams: {},
+      seeAnime: {},
     };
   },
   created: function () {},
@@ -33,6 +34,16 @@ export default {
       });
     },
     removeFromFavorites: function () {},
+    showAnime: function (anime) {
+      // for some reason, i cannot access the anime object in the template using dot notation, so i manually set it in the method
+      this.seeAnime["name"] = anime.show.name;
+      this.seeAnime["summary"] = anime.show.summary;
+      this.seeAnime["summary"] = this.seeAnime["summary"].replace("<p>", "");
+      this.seeAnime["summary"] = this.seeAnime["summary"].replace("</p>", "");
+      this.seeAnime["image"] = anime.show.image.medium;
+      console.log("Anime:", this.seeAnime);
+      document.querySelector("#anime-details").showModal();
+    },
   },
 };
 </script>
@@ -46,15 +57,25 @@ export default {
     <br />
     <div v-if="empty">No anime found :(</div>
     <div v-for="anime in animes" v-bind:key="anime.id">
+      <p>{{ anime.show.id }}</p>
       <!-- only one of the 2 buttons below show up! -->
       <!-- button to add to favorites -->
       <button v-if="anime.favorited == false" v-on:click="addToFavorites(anime.show.id)">♡</button>
       <!-- button to remove from favorites -->
       <button v-if="anime.favorited == true" v-on:click="removeFromFavorites()">♥</button>
       <br />
-      <img :src="anime.show.image.medium" alt="" />
+      <!-- make a modal  -->
+      <img v-on:click="showAnime(anime)" :src="anime.show.image.medium" alt="" />
       <h3>{{ anime.show.name }}</h3>
     </div>
+    <dialog id="anime-details">
+      <form method="dialog">
+        <h2>{{ seeAnime.name }}</h2>
+        <img :src="seeAnime.image" alt="" />
+        <p>{{ seeAnime.summary }}</p>
+        <button>Close</button>
+      </form>
+    </dialog>
   </div>
 </template>
 
