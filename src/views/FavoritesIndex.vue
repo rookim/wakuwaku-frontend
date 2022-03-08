@@ -1,9 +1,11 @@
 <script>
-// import axios from "axios";
-
 import axios from "axios";
+import SeeAnime from "@/components/SeeAnime.vue";
 
 export default {
+  components: {
+    SeeAnime,
+  },
   data: function () {
     return {
       message: "You're currently watching...",
@@ -33,8 +35,8 @@ export default {
   <div class="favorites-index">
     <h1>{{ message }}</h1>
     <div v-for="favorite in favorites" v-bind:key="favorite.id">
-      <img :src="favorite.tvmaze_anime.image" alt="" />
-      <p>{{ favorite.tvmaze_anime.name }}</p>
+      <SeeAnime :tacocat="favorite" />
+      <p>{{ favorite.show.name }}</p>
       <!-- button to remove anime from favorites -->
       <button v-on:click="removeAnime(favorite.id, favorite)">Remove</button>
       <br />
