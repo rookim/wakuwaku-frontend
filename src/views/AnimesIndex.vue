@@ -26,22 +26,31 @@ export default {
         }
       });
     },
-    addToFavorites: function (id) {
-      this.newFavoriteParams["tvmaze_id"] = id;
+    addToFavorites: function (anime) {
+      this.newFavoriteParams["tvmaze_id"] = anime.show.id;
       axios.post("/favorites", this.newFavoriteParams).then((response) => {
-        console.log("Successfully added to Favorites:", response.data.show.name);
+        console.log("Successfully added to Favorites:", response.data);
+        anime.favorited = true;
+        anime.favoritesId = response.data.id;
       });
     },
-    removeFromFavorites: function (favoritesId) {
-      axios.delete(`/favorites/${favoritesId}`).then((response) => {
-        console.log(response.data.message);
+    removeFromFavorites: function (anime) {
+      axios.delete(`/favorites/${anime.favoritesId}`).then((response) => {
+        console.log(response.data);
+        anime.favorited = false;
       });
     },
     showAnime: function (anime) {
       this.currentAnime["name"] = anime.show.name;
       this.currentAnime["summary"] = anime.show.summary;
-      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<p>", "");
-      this.currentAnime["summary"] = this.currentAnime["summary"].replace("</p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("</p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<br />", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<br />", " ");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<b>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("</b>", " ");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<i>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("</i>", "");
       this.currentAnime["image"] = anime.show.image.medium;
       console.log("Anime:", this.currentAnime);
       document.querySelector("#anime-details").showModal();
@@ -62,8 +71,8 @@ export default {
     <div v-for="anime in animes" v-bind:key="anime.id">
       <!-- only one of the 2 buttons below show up! -->
       <!-- button to add to favorites -->
-      <button v-if="anime.favorited == false" v-on:click="addToFavorites(anime.show.id)">♡</button>
-      <button v-if="anime.favorited == true" v-on:click="removeFromFavorites(anime.favoritesId)">♥</button>
+      <button v-if="anime.favorited == false" v-on:click="addToFavorites(anime)">♡</button>
+      <button v-else v-on:click="removeFromFavorites(anime)">♥</button>
       <!-- button to remove from favorites -->
       <br />
       <br />
