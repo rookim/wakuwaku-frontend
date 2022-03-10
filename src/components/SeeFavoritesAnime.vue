@@ -10,6 +10,10 @@ export default {
     showAnime: function (anime) {
       this.currentAnime["name"] = anime.show.name;
       this.currentAnime["summary"] = anime.show.summary;
+      // IT SMELLS WET IN HERE
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("</p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<br />", "");
       this.currentAnime["summary"] = this.currentAnime["summary"].replace("<p>", "");
       this.currentAnime["summary"] = this.currentAnime["summary"].replace("</p>", "");
       this.currentAnime["image"] = anime.show.image.medium;
@@ -24,7 +28,9 @@ export default {
   <div v-for="favorite in tacocat" v-bind:key="favorite.id">
     <img v-on:click="showAnime(favorite)" :src="favorite.show.image.medium" alt="" />
     <p>{{ favorite.show.name }}</p>
-    <button @click="$emits('editList', favorite.id, favorite)">Remove</button>
+    <button @click="$emit('editList', favorite.id, favorite)">Remove</button>
+    <br />
+    <br />
     <br />
     <br />
   </div>
