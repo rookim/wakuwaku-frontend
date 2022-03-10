@@ -60,7 +60,7 @@ export default {
     <div v-for="favorite in favorites" v-bind:key="favorite.id">
       <img v-on:click="showAnime(favorite)" :src="favorite.show.image.medium" alt="" />
       <h2>{{ favorite.show.name }}</h2>
-      <h3>Season {{ favorite.shows.next_ep.season }}</h3>
+      <h3>Season {{ favorite.show.next_ep.season }}</h3>
       <p>Coming up: Episode {{ favorite.show.next_ep.number }} - {{ favorite.show.next_ep.name }}</p>
       <p>Time: {{ favorite.show.next_ep.airdate }} at {{ favorite.show.next_ep.airtime }}</p>
       <button @click="removeAnime(favorite)">Remove</button>
