@@ -1,16 +1,33 @@
+<script>
+export default {
+  data: function () {
+    return {
+      // set a variable on page load
+      isLoggedIn: !!localStorage.jwt,
+    };
+  },
+  watch: {
+    // watching for route changes. as soon as the route changes, execute a function
+    $route: function () {
+      this.isLoggedIn = !!localStorage.jwt;
+    },
+  },
+};
+</script>
+
 <template>
   <div id="nav">
-    <router-link to="/">Homepage</router-link>
+    <router-link to="/">Search Anime</router-link>
     |
-    <router-link to="/signup">Signup</router-link>
+    <router-link v-if="!isLoggedIn" to="/signup">Signup</router-link>
     |
-    <router-link to="/login">Login</router-link>
+    <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
     |
-    <router-link to="/logout">Logout</router-link>
+    <router-link v-if="isLoggedIn" to="/logout">Logout</router-link>
     |
-    <router-link to="/search">Search Anime</router-link>
+    <router-link v-if="isLoggedIn" to="/favorites">Favorites</router-link>
     |
-    <router-link to="/me">Account</router-link>
+    <router-link v-if="isLoggedIn" to="/me">Account</router-link>
   </div>
   <router-view />
 </template>
