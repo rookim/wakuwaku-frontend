@@ -11,6 +11,7 @@ export default {
       newFavoriteParams: {},
       removeFavoriteParams: {},
       currentAnime: {},
+      isUser: !!localStorage.jwt,
     };
   },
   methods: {
@@ -70,8 +71,8 @@ export default {
     <div v-for="anime in animes" v-bind:key="anime.id">
       <!-- only one of the 2 buttons below show up! -->
       <!-- button to add to favorites -->
-      <button v-if="anime.favorited == false" v-on:click="addToFavorites(anime)">♡</button>
-      <button v-else v-on:click="removeFromFavorites(anime)">♥</button>
+      <button v-if="isUser && anime.favorited == false" v-on:click="addToFavorites(anime)">♡</button>
+      <button v-if="isUser && anime.favorited == true" v-on:click="removeFromFavorites(anime)">♥</button>
       <!-- button to remove from favorites -->
       <br />
       <br />
