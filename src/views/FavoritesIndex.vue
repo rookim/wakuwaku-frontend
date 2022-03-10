@@ -6,7 +6,7 @@ export default {
     return {
       message: "You're currently watching...",
       msgLoading: "",
-      message2: "Loading... (Unless you need to log in)",
+      message2: "Loading...",
       favorites: [],
       currentAnime: {},
     };
