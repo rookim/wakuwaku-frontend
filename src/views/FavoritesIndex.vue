@@ -24,9 +24,9 @@ export default {
       });
   },
   methods: {
-    removeAnime: function (id, favorite) {
-      console.log(id);
-      axios.delete(`/favorites/${id}`).then((response) => {
+    removeAnime: function (favorite) {
+      console.log(favorite.id);
+      axios.delete(`/favorites/${favorite.id}`).then((response) => {
         console.log(response.data);
         // this code makes the list dynamic, but is there a shorter way to do this?
         this.favorites = this.favorites.filter((item) => item !== favorite);
@@ -36,11 +36,14 @@ export default {
       this.currentAnime["name"] = anime.show.name;
       this.currentAnime["summary"] = anime.show.summary;
       // IT SMELLS WET IN HERE
-      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<p>", "");
-      this.currentAnime["summary"] = this.currentAnime["summary"].replace("</p>", "");
-      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<br />", "");
-      this.currentAnime["summary"] = this.currentAnime["summary"].replace("<p>", "");
-      this.currentAnime["summary"] = this.currentAnime["summary"].replace("</p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("</p>", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<br />", "");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<br />", " ");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<b>", " ");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("</b>", " ");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<i>", " ");
+      this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("</i>", " ");
       this.currentAnime["image"] = anime.show.image.medium;
       console.log("Anime:", this.currentAnime);
       document.querySelector("#anime-details").showModal();
@@ -57,10 +60,10 @@ export default {
     <div v-for="favorite in favorites" v-bind:key="favorite.id">
       <img v-on:click="showAnime(favorite)" :src="favorite.show.image.medium" alt="" />
       <h2>{{ favorite.show.name }}</h2>
-      <small>Season {{ favorite.show.next_ep.season }}</small>
+      <h3>Season {{ favorite.shows.next_ep.season }}</h3>
       <p>Coming up: Episode {{ favorite.show.next_ep.number }} - {{ favorite.show.next_ep.name }}</p>
       <p>Time: {{ favorite.show.next_ep.airdate }} at {{ favorite.show.next_ep.airtime }}</p>
-      <button @click="showAnime(favorite)">Remove</button>
+      <button @click="removeAnime(favorite)">Remove</button>
       <br />
       <br />
       <br />
