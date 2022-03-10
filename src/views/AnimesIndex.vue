@@ -13,7 +13,6 @@ export default {
       currentAnime: {},
     };
   },
-  created: function () {},
   methods: {
     submit: function () {
       axios.get("/animes", { params: this.searchParams }).then((response) => {
