@@ -10,6 +10,11 @@ import UsersEdit from "../views/UsersEdit.vue";
 const routes = [
   {
     path: "/",
+    name: "AnimesIndex",
+    component: AnimesIndex,
+  },
+  {
+    path: "/favorites",
     name: "FavoritesIndex",
     component: FavoritesIndex,
   },
@@ -37,11 +42,6 @@ const routes = [
     path: "/me",
     name: "UsersShow",
     component: UsersShow,
-  },
-  {
-    path: "/search",
-    name: "AnimesIndex",
-    component: AnimesIndex,
   },
   {
     path: "/me/edit",
