@@ -1,5 +1,8 @@
 <script>
 import axios from "axios";
+import dayjs from "dayjs";
+var relativeTime = require("dayjs/plugin/relativeTime");
+dayjs.extend(relativeTime);
 
 export default {
   data: function () {
@@ -48,6 +51,9 @@ export default {
       console.log("Anime:", this.currentAnime);
       document.querySelector("#anime-details").showModal();
     },
+    relativeTime: function (anime) {
+      return dayjs(anime.show.next_ep.airdate, anime.show.next_ep.airtime).from(dayjs());
+    },
   },
 };
 </script>
@@ -62,7 +68,7 @@ export default {
       <h2>{{ favorite.show.name }}</h2>
       <h3>Season {{ favorite.show.next_ep.season }}</h3>
       <p>Coming up: Episode {{ favorite.show.next_ep.number }} - {{ favorite.show.next_ep.name }}</p>
-      <p>Time: {{ favorite.show.next_ep.airdate }} at {{ favorite.show.next_ep.airtime }}</p>
+      <p>Airing {{ relativeTime(favorite) }}</p>
       <button @click="removeAnime(favorite)">Remove</button>
       <br />
       <br />
