@@ -4,12 +4,15 @@ export default {
     return {
       // set a variable on page load
       isLoggedIn: !!localStorage.jwt,
+      flashMessage: null,
     };
   },
   watch: {
     // watching for route changes. as soon as the route changes, execute a function
     $route: function () {
       this.isLoggedIn = !!localStorage.jwt;
+      this.flashMessage = localStorage.flashMessage;
+      localStorage.removeItem("flashMessage");
     },
   },
 };
@@ -28,6 +31,10 @@ export default {
     <router-link v-if="isLoggedIn" to="/favorites">Favorites</router-link>
     |
     <router-link v-if="isLoggedIn" to="/me">Account</router-link>
+  </div>
+  <div v-if="flashMessage">
+    {{ flashMessage }}
+    <button v-on:click="flashMessage = ''">Dismiss</button>
   </div>
   <router-view />
 </template>

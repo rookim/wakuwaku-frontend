@@ -13,6 +13,7 @@ export default {
         .post("/users", this.newUserParams)
         .then((response) => {
           console.log("Status:", response.status, "- New user created!");
+          localStorage.setItem("flashMessage", "Thanks for signing up :)");
           this.$router.push("/login");
         })
         .catch((error) => {

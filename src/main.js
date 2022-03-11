@@ -11,3 +11,4 @@ if (jwt) {
 }
 
 createApp(App).use(router).mount("#app");
+// App.config.globalProperties.isLoggedIn = !!localStorage.jwt;

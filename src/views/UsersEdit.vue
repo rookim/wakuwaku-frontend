@@ -25,6 +25,7 @@ export default {
         .then((response) => {
           this.editUserParams = response.data;
           console.log("Status:", response.status, "- User info updated!");
+          localStorage.setItem("flashMessage", "User info updated ^___^");
           this.$router.push("/me");
         })
         .catch((error) => {
