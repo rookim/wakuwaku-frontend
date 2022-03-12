@@ -52,7 +52,7 @@ export default {
       document.querySelector("#anime-details").showModal();
     },
     relativeTime: function (anime) {
-      return dayjs(anime.show.next_ep.airdate, anime.show.next_ep.airtime).from(dayjs());
+      return dayjs(anime.show.next_ep.airstamp).from(dayjs());
     },
   },
 };
@@ -67,7 +67,7 @@ export default {
       <img v-on:click="showAnime(favorite)" :src="favorite.show.image.medium" alt="" />
       <h2>{{ favorite.show.name }}</h2>
       <h3>Season {{ favorite.show.next_ep.season }}</h3>
-      <p>Coming up: Episode {{ favorite.show.next_ep.number }} - {{ favorite.show.next_ep.name }}</p>
+      <p>Coming up: Episode {{ favorite.show.next_ep.number }} - "{{ favorite.show.next_ep.name }}"</p>
       <p>Airing {{ relativeTime(favorite) }}</p>
       <button @click="removeAnime(favorite)">Remove</button>
       <br />
@@ -85,5 +85,3 @@ export default {
     </dialog>
   </div>
 </template>
-
-<style></style>

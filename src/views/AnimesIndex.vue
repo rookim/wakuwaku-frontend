@@ -1,5 +1,6 @@
 <script>
 import axios from "axios";
+import dayjs from "dayjs";
 
 export default {
   data: function () {
@@ -29,6 +30,7 @@ export default {
     addToFavorites: function (anime) {
       this.newFavoriteParams["tvmaze_id"] = anime.show.id;
       axios.post("/favorites", this.newFavoriteParams).then((response) => {
+        console.log(anime.favorited);
         console.log("Successfully added to Favorites:", response.data);
         anime.favorited = true;
         anime.favoritesId = response.data.id;
@@ -41,6 +43,7 @@ export default {
       });
     },
     showAnime: function (anime) {
+      console.log(anime);
       this.currentAnime["name"] = anime.show.name;
       this.currentAnime["summary"] = anime.show.summary;
       this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<p>", "");
@@ -52,8 +55,17 @@ export default {
       this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("<i>", "");
       this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("</i>", "");
       this.currentAnime["image"] = anime.show.image.medium;
+      this.currentAnime["airstamp"] = anime.next_ep.airstamp;
+      this.currentAnime["airdate"] = anime.next_ep.airdate;
+      this.currentAnime["airtime"] = anime.next_ep.airtime;
+      this.currentAnime["season"] = anime.next_ep.season;
+      this.currentAnime["episode"] = anime.next_ep.number;
+      this.currentAnime["episode_name"] = anime.next_ep.name;
       console.log("Anime:", this.currentAnime);
       document.querySelector("#anime-details").showModal();
+    },
+    relativeTime: function (anime) {
+      return dayjs(anime.airstamp).from(dayjs());
     },
   },
 };
@@ -85,8 +97,11 @@ export default {
     <dialog id="anime-details">
       <form method="dialog">
         <h2>{{ currentAnime.name }}</h2>
+        <h3>Season {{ currentAnime.season }}</h3>
         <img :src="currentAnime.image" alt="" />
         <p>{{ currentAnime.summary }}</p>
+        <p>Coming up: Episode {{ currentAnime.episode }} - "{{ currentAnime.episode_name }}"</p>
+        <p>Airing {{ relativeTime(currentAnime) }}</p>
         <button>Close</button>
       </form>
     </dialog>
