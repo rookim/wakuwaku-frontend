@@ -66,9 +66,17 @@ export default {
     <div v-for="favorite in favorites" v-bind:key="favorite.id">
       <img v-on:click="showAnime(favorite)" :src="favorite.show.image.medium" alt="" />
       <h2>{{ favorite.show.name }}</h2>
-      <h3>Season {{ favorite.show.next_ep.season }}</h3>
-      <p>Coming up: Episode {{ favorite.show.next_ep.number }} - "{{ favorite.show.next_ep.name }}"</p>
-      <p>Airing {{ relativeTime(favorite) }}</p>
+      <!-- need to make sure there is a next episode. anime could be finished -->
+      <div v-if="favorite.show.next_ep">
+        <h3>Season {{ favorite.show.next_ep.season }}</h3>
+        <p>Coming up: Episode {{ favorite.show.next_ep.number }} - "{{ favorite.show.next_ep.name }}"</p>
+        <p>Airing {{ relativeTime(favorite) }}</p>
+      </div>
+      <div v-else>
+        <small>Next episode information unavailable. Sorry for the inconvenience :(</small>
+        <br />
+        <br />
+      </div>
       <button @click="removeAnime(favorite)">Remove</button>
       <br />
       <br />
