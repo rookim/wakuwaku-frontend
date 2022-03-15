@@ -3,6 +3,8 @@ import axios from "axios";
 import dayjs from "dayjs";
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
+//import dayjs from 'dayjs' // ES 2015
+dayjs().format();
 
 export default {
   data: function () {
@@ -18,8 +20,22 @@ export default {
     axios
       .get("/favorites")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.favorites = response.data;
+        // convert date strings under airstamp key to Date objects
+        this.favorites = this.favorites.map((favorite) => {
+          if (favorite.show.next_ep.airstamp) {
+            favorite.show.next_ep.airstamp = dayjs(favorite.show.next_ep.airstamp);
+          }
+          return favorite;
+        });
+        // and then sort by the airstamp key!
+        // in order for the sort method to work (sort by date), the strings need to be converted into Date objects first, which is what I did above
+        this.favorites = this.favorites.sort(function (a, b) {
+          return a.show.next_ep.airstamp - b.show.next_ep.airstamp;
+        });
+        // print results to console for testing purposes
+        console.log(this.favorites);
       })
       .catch((error) => {
         console.log(error.response);
