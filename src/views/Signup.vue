@@ -20,13 +20,14 @@ export default {
   data: function () {
     return {
       newUserParams: { username: "", password: "", password_confirmation: "", email: "" },
-      // errors: [],
+      errors: [],
     };
   },
   validations: function () {
     return {
       newUserParams: {
         username: { required, minLength: minLength(3) },
+        // sameAs validation did not work for some reason. using backend validation to catch mismatched passwords
         password: { required, requiredChars },
         password_confirmation: { required },
         email: { required, email },
@@ -35,6 +36,8 @@ export default {
   },
   methods: {
     submit: function () {
+      // when users enter mismatched passwords, but then fix it without refreshing their page. it'll come back if it's still mismatched when they click the button
+      this.errors = [];
       // need to validate form before submitting
       this.v$.$validate();
       console.log(this.v$);
@@ -61,9 +64,6 @@ export default {
   <div class="signup">
     <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
-      <!-- <ul>
-        <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
-      </ul> -->
       <div>
         <label>Email:</label>
         <input type="text" v-model="newUserParams.email" />
@@ -115,6 +115,9 @@ export default {
           Passwords must match!
         </small>
       </div>
+      <ul>
+        <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+      </ul>
       <br />
       <input type="submit" value="Create Account" />
     </form>
