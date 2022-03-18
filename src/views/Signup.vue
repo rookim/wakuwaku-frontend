@@ -53,7 +53,7 @@ export default {
             this.errors = error.response.data.errors;
           });
       } else {
-        alert("Failed to submit. Please make sure information includes requirements.");
+        alert("Failed to submit. Please make sure account information includes requirements.");
       }
     },
   },
