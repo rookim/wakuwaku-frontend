@@ -6,6 +6,7 @@ import Logout from "../views/Logout.vue";
 import UsersShow from "../views/UsersShow.vue";
 import AnimesIndex from "../views/AnimesIndex.vue";
 import UsersEdit from "../views/UsersEdit.vue";
+import Calendar from "../views/Calendar.vue";
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
     path: "/me/edit",
     name: "UsersEdit",
     component: UsersEdit,
+  },
+  {
+    path: "/calendar",
+    name: "Calendar",
+    component: Calendar,
   },
 ];
 
