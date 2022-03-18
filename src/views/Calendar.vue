@@ -48,10 +48,11 @@ export default {
         events: [],
         // this function allows for the user to click on an event which results in an alert popup window with full information
         eventClick: function (info) {
-          alert(info.event.title + " from " + info.event.start + " to " + info.event.end);
+          alert(info.event.title + " from " + info.event.start);
         },
       },
       user: "",
+      loggedInUser: localStorage.username,
       accessToken: localStorage.accessToken,
       googleCalendarEvents: [],
     };
@@ -77,6 +78,7 @@ export default {
         return null;
       }
     },
+    // need to figure out how to log out of google account because it stays logged in even though i log out of wakuwaku account
     async handleClickSignOut() {
       try {
         await this.$gAuth.signOut();
@@ -131,7 +133,7 @@ export default {
 
 <template>
   <div>
-    <h1>Testing the FullCalendar package</h1>
+    <h1>{{ loggedInUser }}'s Calendar</h1>
     <div>
       <button @click="handleClickSignIn" :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized">
         sign in

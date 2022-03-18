@@ -17,6 +17,17 @@ export default {
           localStorage.setItem("flashMessage", "Successfully logged in!");
           console.log("User successfully logged in!");
           this.$router.push("/");
+          // do another axios request to grab user info in order to display username
+          axios
+            .get("/users/me")
+            .then((response) => {
+              console.log(response.data);
+              localStorage.setItem("username", response.data.username);
+            })
+            .catch((error) => {
+              console.log(error.response.data.errors);
+              this.errors = error.response;
+            });
         })
         .catch((error) => {
           console.log(error.response);
