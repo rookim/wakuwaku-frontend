@@ -48,7 +48,7 @@ export default {
         events: [],
         // this function allows for the user to click on an event which results in an alert popup window with full information
         eventClick: function (info) {
-          alert(info.event.title + " from " + info.event.start);
+          alert(info.event.title + " at " + info.event.start);
         },
       },
       user: "",

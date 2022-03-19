@@ -26,13 +26,13 @@ export default {
     |
     <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
     |
-    <router-link v-if="isLoggedIn" to="/logout">Logout</router-link>
-    |
     <router-link v-if="isLoggedIn" to="/favorites">Favorites</router-link>
     |
     <router-link v-if="isLoggedIn" to="/calendar">Calendar</router-link>
     |
     <router-link v-if="isLoggedIn" to="/me">Account</router-link>
+    |
+    <router-link v-if="isLoggedIn" to="/logout">Logout</router-link>
   </div>
   <div v-if="flashMessage">
     {{ flashMessage }}
