@@ -1,0 +1,158 @@
+// Typography
+
+$title-font: 'Montserrat', sans-serif;
+$primary-font: 'Montserrat', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+$thin: 100;
+$light: 300;
+$regular: 400;
+$medium: 600;
+$bold: 900;
+$lsp: 0.01rem;
+$lsp-2x: 0.02rem;
+$lsp-big: 0.05rem;
+$lsp-extra: 0.15rem;
+
+
+
+// Extras
+
+$input-height: 52px;
+$border-radius: 0;
+$border-radius-xs: 0.1875rem;
+$border-radius-sm: 0.125rem;
+$border-radius-lg: 0.25rem;
+$border-radius-xl: 0.5rem;
+
+
+
+// General Colors
+
+$body-bg: #fafafa;
+$body-bg-gradient: linear-gradient(180deg, $body-bg 0%, #ededed 100%);
+$body-bg-dark: #191919;
+$body-bg-dark-gradient: linear-gradient(180deg, $body-bg-dark 0%, #000 100%);
+$light-grey: #f1f1f1;
+$light-grey-dark: #e6e6e6;
+$grey: #d6d6d6;
+$grey-dark: #919191;
+$grey-gradient: linear-gradient(180deg, $light-grey-dark 0%, $grey 100%);
+$dark-grey: #515151;
+$dark-grey-dark: #303030;
+$white: #fff;
+$white-gradient: linear-gradient(180deg, $white 0%, $light-grey 100%);
+$black: #000;
+$black-gradient: linear-gradient(180deg, $dark-grey 0%, $black 100%);
+$inverse-color: #111;
+$title-color: #000;
+$text-color: #636363;
+$dark: #232323;
+$dark-gradient: linear-gradient(180deg, $dark-grey-dark 0%, $dark 100%);
+
+
+
+// Color Palette
+
+$primary-light: #ddd;
+$primary: #111;
+$primary-dark: #000;
+$primary-gradient: linear-gradient(180deg, $primary 0%, $primary-dark 100%);
+
+$secondary-light: #e4e4e4;
+$secondary: #c2c2c2;
+$secondary-dark: #848484;
+$secondary-gradient: linear-gradient(180deg, $secondary 0%, $secondary-dark 100%);
+
+$success-light: #c7fbd3;
+$success: #2cb34c;
+$success-dark: #12812c;
+$success-gradient: linear-gradient(180deg, $success 0%, $success-dark 100%);
+
+$info-light: #dfeeff;
+$info: #0978f5;
+$info-dark: #005bc1;
+$info-gradient: linear-gradient(180deg, $info 0%, $info-dark 100%);
+
+$warning-light: #f9e0b4;
+$warning: #e5a12b;
+$warning-dark: #c27d04;
+$warning-gradient: linear-gradient(180deg, $warning 0%, $warning-dark 100%);
+
+$danger-light: #f9bcc2;
+$danger: #d72f40;
+$danger-dark: #9b1421;
+$danger-gradient: linear-gradient(180deg, $danger 0%, $danger-dark 100%);
+
+
+
+// Transparent
+
+$primary-transparent: rgba(10,10,10,0.15);
+$primary-transparent-50: rgba(10,10,10,0.5);
+$primary-transparent-frosted: rgba(10,10,10,0.92);
+$primary-transparent-frosted-dark: rgba(10,10,10,0.98);
+
+$white-transparent: rgba(255,255,255,0.15);
+$white-transparent-50: rgba(255,255,255,0.5);
+$white-transparent-frosted: rgba(255,255,255,0.92);
+$white-transparent-frosted-dark: rgba(255,255,255,0.98);
+
+$black-transparent: rgba(0,0,0,0.15);
+$black-transparent-50: rgba(0,0,0,0.5);
+$black-transparent-frosted: rgba(0,0,0,0.92);
+$black-transparent-frosted-dark: rgba(0,0,0,0.98);
+
+$inverse-transparent: rgba(25,25,25,0.15);
+$inverse-transparent-50: rgba(25,25,25,0.5);
+$inverse-transparent-frosted: rgba(25,25,25,0.92);
+$inverse-transparent-frosted-dark: rgba(25,25,25,0.98);
+
+
+
+// Shadows
+
+$shadow-color: rgba(0,0,0,0.05);
+$shadow-color-dark: rgba(0,0,0,0.08);
+$shadow-color-darker: rgba(0,0,0,0.14);
+$shadow-xs: 0px 1px 4px $shadow-color;
+$shadow-sm: 0px 2px 8px $shadow-color;
+$shadow: 0px 3px 12px $shadow-color;
+$shadow-lg: 0px 5px 18px $shadow-color-dark;
+$shadow-xl: 0px 10px 30px $shadow-color-dark;
+$btn-shadow-sm: 0px 2px 6px $shadow-color;
+$btn-shadow-sm-dark: 0px 3px 10px $shadow-color-darker;
+$btn-shadow: 0px 3px 10px $shadow-color;
+$btn-shadow-dark: 0px 6px 25px $shadow-color-darker;
+
+
+
+// Social Colors
+
+$facebook: #4e68a1;
+$facebook-dark: #3b4f7a;
+$twitter: #65b5f2;
+$twitter-dark: #5294c6;
+$linkedin: #2083bc;
+$linkedin-dark: #186592;
+$pinterest: #d2373b;
+$pinterest-dark: #ad2c2f;
+$dribbble: #ec5f94;
+$dribbble-dark: #b4446e;
+$instagram: #4c5fd7;
+$instagram-dark: #4252ba;
+$vimeo: #1ab7ea;
+$vimeo-dark: #0d91bc;
+$youtube: #e52d27;
+$youtube-dark: #b31217;
+$dropbox: #3d9ae8;
+$dropbox-dark: #2777bb;
+$behance: #053eff;
+$behance-dark: #062fbb;
+$skype: #00aff0;
+$skype-dark: #068bbd;
+$tumblr: #34526f;
+$tumblr-dark: #172635;
+$github: #333;
+$github-dark: #111;
+$reddit: #ff4500;
+$reddit-dark: #c13400;

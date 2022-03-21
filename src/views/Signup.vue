@@ -123,12 +123,3 @@ export default {
     </form>
   </div>
 </template>
-
-<style>
-.is_valid {
-  color: rgba(136, 152, 170, 0.8);
-}
-.is_valid:before {
-  width: 100%;
-}
-</style>

@@ -1,0 +1,673 @@
+/*---------- dark-mode ----------*/
+
+body.dark-mode {
+    background-color: $body-bg-dark;
+    color: $grey;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+    color: $white;
+}
+
+.dark a, .dark a:focus, .dark-mode a, .dark-mode a:focus  {
+    color: $white;
+    opacity: 0.65;
+}
+
+.dark a:hover, .dark-mode a:hover {
+    color: $white;
+    opacity: 1;
+}
+
+.dark a.btn, .dark .btn:hover, .dark .btn-social:hover, .dark-mode a.btn, .dark-mode .btn:hover, .dark-mode .btn-social:hover {
+    opacity: 1;
+}
+
+.dark .title-color, .dark-mode .title-color {
+    color: $white !important;
+}
+
+.dark .text-link, .dark .text-link:focus, .dark-mode .text-link, .dark-mode .text-link:focus {
+    color: $white;
+    opacity: 0.65;
+}
+
+.dark .text-link:hover, .dark-mode .text-link:hover {
+    color: $white;
+    opacity: 1;
+}
+
+.dark .title-link, .dark .title-link:focus, .dark-mode .title-link, .dark-mode .title-link:focus {
+    color: $white;
+}
+
+.dark .title-link:hover, .dark-mode .title-link:hover {
+    color: $white;
+    opacity: 0.75;
+}
+
+.dark p, .dark-mode p {
+    color: $grey;
+}
+
+.dark li, .dark-mode li {
+    color: $grey;
+}
+
+.dark header .page-title, .dark header .title, .dark .section-title, .dark-mode header .page-title, .dark-mode header .title, .dark-mode .section-title {
+    text-shadow: 0px 0px 40px rgba(55,55,55,0.3);
+}
+
+.dark .section-sub-title, .dark-mode .section-sub-title {
+    color: $white;
+}
+
+.dark-mode .navbar-expand-lg.navbar-inverse .navbar-collapse .dropdown-item:hover {
+    color: $white;
+    opacity: 1;
+}
+
+.dark .nav a, .dark-mode .nav a, .dark .pagination .active a, .dark-mode .pagination .active a, .dark .navbar-brand, .dark-mode .navbar-brand {
+    opacity: 1 !important;
+}
+
+.dark .pagination a, .dark-mode .pagination a {
+    color: $white;
+    opacity: 0.75;
+}
+
+.dark .pagination a:hover, .dark-mode .pagination a:hover {
+    opacity: 1;
+}
+
+.dark .breadcrumb-item, .dark-mode .breadcrumb-item {
+    color: $light-grey;
+}
+
+.dark .breadcrumb-item:hover, .dark-mode .breadcrumb-item:hover {
+    opacity: 1;
+    color: $grey;
+}
+
+.dark .breadcrumb-item::before, .dark-mode .breadcrumb-item::before {
+    color: $grey !important;
+}
+
+.dark .breadcrumb-item.active, .dark-mode .breadcrumb-item.active {
+    color: $grey;
+}
+
+.dark .breadcrumb-item.active:hover, .dark-mode .breadcrumb-item.active:hover {
+    color: $grey;
+}
+
+.dark table, .dark-mode table {
+    background: $black;
+    border-color: $dark !important;
+}
+
+.dark .table thead th, .dark-mode .table thead th {
+    border-bottom: 1px solid $dark !important;
+    background-color: $inverse-color;
+}
+
+.dark .table .thead-light, .dark-mode .table .thead-light {
+    color: $white;
+    background-color: $dark;
+}
+
+.dark .table td, .dark .table th, .dark-mode .table td, .dark-mode .table th {
+    border-right-color: $dark !important;
+}
+
+.dark .table tr, .dark-mode .table tr {
+    border-color: $dark;
+    color: $grey;
+}
+
+.dark .thead-default th, .dark-mode .thead-default th {
+    color: $white;
+    background-color: $dark;
+}
+
+.dark .table-striped tbody tr:nth-of-type(odd), .dark-mode .table-striped tbody tr:nth-of-type(odd) {
+    background-color: $inverse-color;
+}
+
+.dark .table-striped tbody tr:nth-of-type(odd) th, .dark .table-striped tbody tr:nth-of-type(odd) td, .dark-mode .table-striped tbody tr:nth-of-type(odd) th, .dark-mode .table-striped tbody tr:nth-of-type(odd) td {
+    border-color: $dark !important;
+}
+
+.dark .table-bordered td, .dark .table-bordered th, .dark-mode .table-bordered td, .dark-mode .table-bordered th {
+    border-color: $dark;
+}
+
+.dark .table-active,.table-active>td, .dark .table-active>th, .dark-mode .table-active,.table-active>td, .dark-mode .table-active>th {
+    background-color: $dark;
+}
+
+.dark .toast, .dark-mode .toast {
+    background: $black;
+}
+
+.dark .toast-header, .dark-mode .toast-header {
+    color: $white;
+    border-bottom: $dark;
+}
+
+.dark .toast-header {
+    color: $white;
+}
+
+.dark .toast-header small, .dark-mode .toast-header small {
+    color: $grey-dark;
+}
+
+.dark .toast .btn-close, .dark-mode .toast .btn-close {
+    color: $white;
+}
+
+.dark .popover, .dark-mode .popover {
+    background-color: $inverse-color;
+    color: $grey;
+}
+
+.dark .popover *, .dark-mode .popover * {
+    color: $white;
+    opacity: 0.75;
+}
+
+.dark .popover-header, .dark-mode .popover-header {
+    color: $white !important;
+    opacity: 1;
+}
+
+.dark .bs-popover-top .popover-arrow:after, .dark .bs-popover-top .popover-arrow:before, .dark-mode .bs-popover-top .popover-arrow:after, .dark-mode .bs-popover-top .popover-arrow:before {
+    border-top-color: $inverse-color;
+}
+
+.dark .bs-popover-bottom .popover-arrow:after, .dark .bs-popover-bottom .popover-arrow:before, .dark-mode .bs-popover-bottom .popover-arrow:after, .dark-mode .bs-popover-bottom .popover-arrow:before {
+    border-bottom-color: $inverse-color;
+}
+
+.dark .bs-popover-start .popover-arrow:after, .dark .bs-popover-start .popover-arrow:before, .dark-mode .bs-popover-start .popover-arrow:after, .dark-mode .bs-popover-start .popover-arrow:before {
+    border-left-color: $inverse-color;
+}
+
+.dark .bs-popover-end .popover-arrow:after, .dark .bs-popover-end .popover-arrow:before, .dark-mode .bs-popover-end .popover-arrow:after, .dark-mode .bs-popover-end .popover-arrow:before {
+    border-right-color: $inverse-color;
+}
+
+.dark .form-control, .dark-mode .form-control {
+    color: $grey;
+    background: transparent;
+    border-color: $dark;
+}
+
+.dark input:focus, .dark textarea:focus, .dark .custom-select:focus, .dark .multiple-selector:focus, .dark-mode input:focus, .dark-mode textarea:focus, .dark-mode .custom-select:focus, .dark-mode .multiple-selector:focus {
+    color: $grey !important;
+    outline: none !important;
+    background-color: transparent;
+    border-color: $dark-grey !important;
+}
+
+.dark .custom-select, .dark-mode .custom-select {
+    color: $grey;
+    border-color: $dark;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px
+}
+
+.dark .needs-validation .form-control:focus, .dark .needs-validation .form-control:active, .dark-mode .needs-validation .form-control:focus, .dark-mode .needs-validation .form-control:active {
+    border-color: $dark-grey !important;
+}
+
+.dark .btn-file input[type=file], .dark-mode .btn-file input[type=file] {
+    color: $white;
+    background: $inverse-color;
+}
+
+.dark .form-control.w-icon-left, .dark-mode .form-control.w-icon-left {
+    border-color: $dark;
+}
+
+.dark .input-group-text, .dark-mode .input-group-text {
+    color: $grey;
+    background: $inverse-color;
+    border-color: $dark;
+}
+
+.dark .input-group-addon, .dark-mode .input-group-addon {
+    color: $grey;
+    background-color: $dark;
+    border-color: $dark;
+}
+
+.dark ::-webkit-input-placeholder, .dark-mode ::-webkit-input-placeholder {
+    color: $secondary !important;
+}
+
+.dark ::-moz-placeholder, .dark-mode ::-moz-placeholder {
+    color: $secondary !important;
+}
+
+.dark :-moz-placeholder, .dark-mode :-moz-placeholder {
+    color: $secondary !important;
+}
+
+.dark :-ms-input-placeholder, .dark-mode :-ms-input-placeholder {
+    color: $secondary !important;
+}
+
+.dark .checkbox label::before, .dark-mode .checkbox label::before {
+    border-color: $dark;
+    background-color: $inverse-color;
+}
+
+.dark .checkbox label::after, .dark-mode .checkbox label::after {
+    color: $secondary;
+}
+
+.dark .checkbox input[type="checkbox"]:disabled + label::before, .dark-mode .checkbox input[type="checkbox"]:disabled + label::before {
+    background-color: $inverse-color;
+}
+
+.dark .radio label::before, .dark-mode .radio label::before {
+    border: 2px solid $dark;
+    background-color: $inverse-color;
+}
+
+.dark .radio label::after, .dark-mode .radio label::after {
+    background-color: $secondary;
+}
+
+.dark .form-wrapper, .dark-mode .form-wrapper {
+    background: $inverse-color;
+    border-color: $dark;
+}
+
+.dark #loader-wrapper .loader-section, .dark-mode #loader-wrapper .loader-section {
+  background: $body-bg-dark;
+}
+
+.dark .progress, .dark-mode .progress {
+    background-color: $inverse-color;
+}
+
+.dark .noUi-handle, .dark-mode .noUi-handle {
+    background-color: $inverse-color;
+}
+
+.dark .noUi-target, .dark-mode .noUi-target {
+    background-color: $black;
+}
+
+.dark .card, .dark-mode .card {
+    background-color: $black;
+    border-color: $dark;
+}
+
+.dark .hover-card .card, .dark-mode .hover-card .card {
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.4)
+}
+
+.dark .hovereffect, .dark-mode .hovereffect {
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.5)
+}
+
+.dark.bg-black .hovereffect, .dark-mode.bg-black .hovereffect, .dark .bg-black .hovereffect, .dark-mode .bg-black .hovereffect {
+    box-shadow: 0px 2px 8px rgba(75,75,75,0.5);
+}
+
+.dark .hover-card:hover .card, .dark-mode .hover-card:hover .card {
+    box-shadow: 0px 3px 12px rgba(0,0,0,0.6);
+}
+
+.dark.bg-black .hover-card .card, .dark-mode .bg-black .hover-card .card {
+    box-shadow: 0px 1px 4px rgba(75,75,75,0.4);
+}
+
+.dark.bg-black .hover-card:hover .card, .dark-mode .bg-black .hover-card:hover .card {
+    box-shadow: 0px 3px 12px rgba(75,75,75,0.6);
+}
+
+.dark .card-header, .dark-mode .card-header {
+    border-bottom-color: $dark;
+}
+
+.dark .card-footer, .dark-mode .card-footer {
+    border-top-ccolor: $dark;
+}
+
+.dark .card-header, .dark .card-footer, .dark-mode .card-header, .dark-mode .card-footer {
+    background: $black;
+}
+
+.dark .card-sub-title, .dark-mode .card-sub-title {
+    color: $secondary;
+}
+
+.dark .modal-backdrop, .dark-mode .modal-backdrop {
+    background-color: $black;
+}
+
+.dark .modal-content, .dark-mode .modal-content {
+    background-color: $black;
+}
+
+.dark .modal-fs .modal-close, .dark-mode .modal-fs .modal-close {
+    color: $white;
+    border-color: $white;
+}
+
+.dark .modal-fs .modal-close:hover, .dark-mode .modal-fs .modal-close:hover {
+    color: $white;
+    background-color: transparent;
+}
+
+.dark .swiper-pagination-bullet, .dark-mode .swiper-pagination-bullet {
+    background-color: $secondary;
+}
+
+.dark .swiper-horizontal.pagination-down > .swiper-pagination-bullets .swiper-pagination-bullet-active, .dark-mode .swiper-horizontal.pagination-down > .swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background-color: $secondary;
+}
+
+.dark .accordion, .dark-mode .accordion {
+    background: $black;
+}
+
+.dark .accordion-button, .dark-mode .accordion-button {
+    color: $white;
+    border-color: $dark;
+}
+
+.dark .accordion-item .accordion-button:focus, .dark-mode .accordion-item .accordion-button:focus {
+    border-color: $dark;
+}
+
+.dark .accordion-button.collapsed i, .dark-mode .accordion-button.collapsed i {
+    color: $white;
+}
+
+.dark .accordion-collapse, .dark-mode .accordion-collapse {
+    border-color: $dark;
+}
+
+.dark .minimal-accordion .accordion-button span, .dark-mode .minimal-accordion .accordion-button span {
+    background: $inverse-transparent-50;
+}
+
+.dark .accordion .card, .dark-mode .accordion .card {
+    background: $black;
+}
+
+.accordion .card-body {
+    color: $grey;
+    border-top-color: $dark;
+}
+
+.dark .dropdown-menu, .dark-mode .dropdown-menu {
+    background-color: $black;
+}
+
+.dark .dropdown-divider, .dark-mode .dropdown-divider {
+    border-color: $dark;
+}
+
+.dark .promo-box, .dark-mode .promo-box {
+    background-color: $black;
+    border-color: $dark;
+}
+
+.dark .promo-box.has-process-icon:after, .dark .promo-box.dark.has-process-icon:after, .dark-mode .promo-box.has-process-icon:after, .dark-mode .promo-box.dark.has-process-icon:after {
+    color: rgba(25,25,25,0.75);
+}
+
+.dark .promo-box .col-line-bottom, .dark-mode .promo-box .col-line-bottom {
+    border-bottom-color: $dark;
+}
+
+.dark .promo-box .col-line, .dark-mode .promo-box .col-line {
+    border-right-color: $dark;
+}
+
+.dark .widget, .dark-mode .widget {
+    background-color: $black;
+    border-color: $dark;
+}
+
+.dark .footer-widget-area, .dark-mode .footer-widget-area {
+    border-color: rgba(55,55,55,0.5)
+}
+
+.dark .footer-widget-area .widget, .dark-mode .footer-widget-area .widget, .footer-widget-area.dark .widget {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.dark .comment-reply, .dark .comment-reply:focus, .dark .comment-reply:hover, .dark-mode .comment-reply, .dark-mode .comment-reply:focus, .dark-mode .comment-reply:hover {
+    color: $white;
+    opacity: 0.75;
+}
+
+.dark .comment-reply:hover, .dark-mode .comment-reply:hover {
+    opacity: 1;
+}
+
+.dark .timeline:before, .dark-mode .timeline:before {
+    background-color: $black-transparent-50;
+}
+
+.dark .timeline.w-icons:before, .dark-mode .timeline.w-icons:before {
+    background-color: $black-transparent-50;
+}
+
+.dark .timeline > li > .timeline-badge, .dark-mode .timeline > li > .timeline-badge {
+    border-color: $black;
+}
+
+.dark .timeline > li > .timeline-panel, .dark-mode .timeline > li > .timeline-panel {
+    background-color: $black;
+}
+
+.dark .menu-list a, .dark-mode .menu-list a {
+    color: $white;
+    opacity: 0.75;
+}
+
+.dark .menu-list a:hover, .dark-mode .menu-list a:hover {
+    color: $white;
+    opacity: 1;
+}
+
+.dark .filter-title, .dark-mode .filter-title {
+    color: $white;
+}
+
+.dark .filter-btn, .dark-mode .filter-btn {
+    color: $white;
+}
+
+.dark .filter-btn:hover, .dark-mode .filter-btn:hover {
+    color: $white;
+}
+
+.dark .filter-btn.is-checked, .dark-mode .filter-btn.is-checked {
+    color: $primary;
+    background-color: $white;
+    border-color: $white;
+}
+
+.dark .filter-btn.is-checked:hover, .dark-mode .filter-btn.is-checked:hover {
+    color: $primary;
+    background-color: $white;
+    border-color: $white;
+}
+
+.dark .filter-btn:hover, .dark-mode .filter-btn:hover {
+    color: $white;
+    background-color: transparent;
+    border-color: $white;
+}
+
+.dark .bordered-filter .filter-btn:hover, .dark-mode .bordered-filter .filter-btn:hover, .dark.bordered-filter .filter-btn:hover, .dark-mode.bordered-filter .filter-btn:hover {
+    color: $white;
+    border-color: $white;
+}
+
+.dark .bordered-filter .filter-btn.is-checked, .dark-mode .bordered-filter .filter-btn.is-checked, .dark.bordered-filter .filter-btn.is-checked, .dark-mode.bordered-filter .filter-btn.is-checked {
+    color: $white;
+    background-color: transparent;
+    border-color: $white;
+}
+
+.dark .bordered-filter .filter-btn.is-checked:hover, .dark-mode .bordered-filter .filter-btn.is-checked:hover, .dark.bordered-filter .filter-btn.is-checked:hover, .dark-mode.bordered-filter .filter-btn.is-checked:hover {
+    color: $white;
+    background-color: transparent;
+    border-color: $white;
+}
+
+.dark .hovereffect-title .hover-bottom, .dark-mode .hovereffect-title .hover-bottom  {
+    background-color: $black;
+}
+
+.dark .hovereffect-title .project-title, .dark-mode .hovereffect-title .project-title {
+    color: $white;
+}
+
+.dark .hovereffect-title .project-title:hover, .dark-mode .hovereffect-title .project-title:hover {
+    color: $white;
+}
+
+.dark .comment-author, .dark-mode .comment-author {
+    color: $white;
+}
+
+.dark .glightbox-clean .gslide-description, .dark-mode .glightbox-clean .gslide-description {
+    background-color: $black;
+}
+
+.dark .glightbox-clean .gslide-title, .dark-mode .glightbox-clean .gslide-title {
+    color: $white;
+}
+
+.dark .glightbox-clean .gslide-desc, .dark-mode .glightbox-clean .gslide-desc {
+    color: $secondary;
+}
+
+.dark .hovereffect-title .hover-bottom a, .dark-mode .hovereffect-title .hover-bottom a {
+    color: $white;
+    opacity: 1;
+}
+
+.dark .hovereffect-title .hover-bottom a:hover, .dark-mode .hovereffect-title .hover-bottom a:hover {
+    color: $primary;
+}
+
+.dark .product-price, .dark-mode .product-price {
+    background-color: $inverse-color;
+}
+
+.dark .hovereffect.effect-lines .overlay, .dark-mode .hovereffect.effect-lines .overlay, .dark .hovereffect.effect-overlay .overlay, .dark-mode .hovereffect.effect-overlay .overlay {
+    background: $black-transparent-frosted;
+}
+
+.dark .hovereffect.effect-boxed .overlay, .dark-mode .hovereffect.effect-boxed .overlay {
+    background: $black;
+}
+
+.dark .effect-lines .project-title-wrapper::before, .dark-mode .effect-lines .project-title-wrapper::before, .dark .effect-lines .project-title-wrapper::after, .dark-mode .effect-lines .project-title-wrapper::after {
+    border-color: $white;
+}
+
+.dark .product-price.w-del del, .dark-mode .product-price.w-del del {
+    border-color: $dark;
+}
+
+.dark .team-item, .dark-mode .team-item {
+    background: $black;
+}
+
+.dark .mega-menu .sub-menu, .dark-mode .mega-menu .sub-menu {
+    border-color: $dark;
+}
+
+.dark form label, .dark-mode form label {
+    color: $grey;
+}
+
+.dark .wishlist-list li, .dark-mode .wishlist-list li {
+    border-color: $dark;
+}
+
+.dark .nav-tabs .nav-link, .dark-mode .nav-tabs .nav-link {
+    color: $grey;
+}
+
+.dark .nav-tabs .nav-link:hover, .dark-mode .nav-tabs .nav-link:hover {
+    color: $white;
+}
+
+.dark .nav-tabs.product-tabs .nav-link:hover, .dark-mode .nav-tabs.product-tabs .nav-link:hover {
+    border-color: $white !important;
+}
+
+.dark .nav-tabs.product-tabs .nav-link.active:hover, .dark-mode .nav-tabs.product-tabs .nav-link.active:hover {
+    border-color: $primary !important;
+}
+
+.dark .nav-tabs .nav-link.active, .dark-mode .nav-tabs .nav-link.active {
+    color: $primary;
+    border-color: $primary;
+}
+
+.dark .shipping-info, .dark-mode .shipping-info, .dark .order-info, .dark-mode .order-info {
+    border-color: $dark;
+}
+
+.dark .shipping-options, .dark-mode .shipping-options {
+    background-color: $body-bg-dark;
+    border-color: $dark;
+}
+
+.dark .accepted-cards, .dark-mode .accepted-cards {
+    background-color: $body-bg-dark;
+    border-color: $dark;
+}
+
+.dark .accepted-cards-text, .dark-mode .accepted-cards-text {
+    color: $white;
+}
+
+.dark .order-list li, .dark-mode .order-list li {
+    border-color: $dark;
+}
+
+.dark .spacer, .dark-mode .spacer {
+    border-color: $dark;
+}
+
+.dark .hovereffect-title.project-icons a, .dark-mode .hovereffect-title.project-icons a {
+    opacity: 1 !important;
+    background-color: $white;
+    color: $black;
+}
+
+.dark .hovereffect-title.project-icons a:hover, .dark-mode .hovereffect-title.project-icons a:hover {
+    background-color: $dark !important;
+    color: $white;
+}
+
+.dark-mode .header-text {
+    color: $grey;
+}
+
+.dark .typewrite > .wrap:after, .dark-mode .typewrite > .wrap:after {
+    color: $white;
+}
+
+.dark .typewrite > .wrap, .dark-mode .typewrite > .wrap {
+    color: $white;
+}
+
+/*---------- end of dark-mode ----------*/

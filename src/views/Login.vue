@@ -57,5 +57,3 @@ export default {
     </form>
   </div>
 </template>
-
-<style></style>
