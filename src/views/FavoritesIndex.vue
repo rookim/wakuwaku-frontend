@@ -14,13 +14,14 @@ export default {
       message2: "Loading...",
       favorites: [],
       currentAnime: {},
+      favoritesFilter: "",
     };
   },
   created: function () {
     axios
       .get("/favorites")
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
         this.favorites = response.data;
         // convert date strings under airstamp key to Date objects
         this.favorites = this.favorites.map((favorite) => {
@@ -70,6 +71,11 @@ export default {
     relativeTime: function (anime) {
       return dayjs(anime.show.next_ep.airstamp).from(dayjs());
     },
+    filteredFavorites: function () {
+      return this.favorites.filter((anime) => {
+        return anime.show.name.toLowerCase().includes(this.favoritesFilter.toLowerCase());
+      });
+    },
   },
 };
 </script>
@@ -78,8 +84,11 @@ export default {
   <div class="favorites-index">
     <h1 v-if="favorites.length != 0">{{ message }}</h1>
     <h1 v-if="favorites.length == 0">{{ message2 }}</h1>
-    <br />
-    <div v-for="favorite in favorites" v-bind:key="favorite.id">
+    <p>
+      Search:
+      <input type="text" v-model="favoritesFilter" />
+    </p>
+    <div v-for="favorite in filteredFavorites()" v-bind:key="favorite.id">
       <img v-on:click="showAnime(favorite)" :src="favorite.show.image.medium" alt="" />
       <h2>{{ favorite.show.name }}</h2>
       <!-- need to make sure there is a next episode. anime could be finished -->
@@ -90,14 +99,8 @@ export default {
       </div>
       <div v-else>
         <small>Next episode information unavailable. Sorry for the inconvenience :(</small>
-        <br />
-        <br />
       </div>
       <button @click="removeAnime(favorite)">Remove</button>
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
     <dialog id="anime-details">
       <form method="dialog">
