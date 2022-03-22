@@ -44,6 +44,7 @@ export default {
     return {
       calendarOptions: {
         plugins: [dayGridPlugin, interactionPlugin],
+        aspectRatio: 2.2,
         initialView: "dayGridMonth",
         events: [],
         // this function allows for the user to click on an event which results in an alert popup window with full information
@@ -132,7 +133,41 @@ export default {
 </script>
 
 <template>
-  <div>
+  <body>
+    <!-- START HEADER -->
+    <header
+      class="xl v-center bg-img jarallax"
+      data-jarallax
+      data-speed="0.8"
+      style="background-image: url(https://kingstudio.ro/demos/mipo/assets/images/ph-bg4.jpg)"
+    >
+      <div class="container text-center">
+        <h1 class="page-title text-white mb-0">{{ loggedInUser }}'s Calendar</h1>
+      </div>
+      <!-- / container -->
+    </header>
+    <!-- END HEADER -->
+    <div id="google-buttons">
+      <a
+        class="btn btn-primary pill btn-outline-primary"
+        @click="handleClickSignIn"
+        :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized"
+      >
+        Google Sign In
+      </a>
+      <a
+        class="btn btn-primary pill btn-outline-primary"
+        @click="handleClickSignOut"
+        :disabled="!Vue3GoogleOauth.isAuthorized"
+      >
+        Google Sign Out
+      </a>
+    </div>
+  </body>
+  <FullCalendar :options="calendarOptions" />
+
+  <!-- ORIGINAL CODE -->
+  <!-- <div>
     <h1>{{ loggedInUser }}'s Calendar</h1>
     <div>
       <button @click="handleClickSignIn" :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized">
@@ -141,5 +176,5 @@ export default {
       <button @click="handleClickSignOut" :disabled="!Vue3GoogleOauth.isAuthorized">sign out</button>
     </div>
     <FullCalendar :options="calendarOptions" />
-  </div>
+  </div> -->
 </template>
