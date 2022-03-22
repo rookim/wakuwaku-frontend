@@ -66,7 +66,7 @@ export default {
       this.currentAnime["summary"] = this.currentAnime["summary"].replaceAll("</i>", " ");
       this.currentAnime["image"] = anime.show.image.medium;
       console.log("Anime:", this.currentAnime);
-      document.querySelector("#anime-details").showModal();
+      // document.querySelector("#anime-details").showModal();
     },
     relativeTime: function (anime) {
       return dayjs(anime.show.next_ep.airstamp).from(dayjs());
@@ -99,7 +99,7 @@ export default {
                   placeholder="Search your favorites..."
                 />
                 <span class="input-group-btn">
-                  <button class="btn btn-sm btn-primary btn-icon overlapping-btn rounded" type="button">
+                  <button class="btn btn-sm btn-primary pill btn-icon overlapping-btn rounded" type="button">
                     <i class="fas fa-search"></i>
                   </button>
                 </span>
@@ -109,11 +109,11 @@ export default {
             </div>
             <!-- END SEARCH BAR -->
             <div class="row">
-              <div class="col-lg-8 tablet-lg-top-45 page-content">
+              <div class="col-lg-12 tablet-lg-top-45 page-content">
                 <!-- START ROW -->
                 <div class="row">
                   <!-- START COLUMN -->
-                  <div class="col-md-4" v-for="favorite in filteredFavorites()" v-bind:key="favorite.id">
+                  <div class="col-md-3" v-for="favorite in filteredFavorites()" v-bind:key="favorite.id">
                     <div class="hover-card">
                       <div class="card mb-0">
                         <img
@@ -137,8 +137,16 @@ export default {
                           <div v-else>
                             <small>Next episode information unavailable. Sorry for the inconvenience :(</small>
                           </div>
-
-                          <a class="btn btn-sm btn-primary" @click="removeAnime(favorite)">Remove</a>
+                          <a
+                            v-on:click="showAnime(favorite)"
+                            class="btn btn-xs btn-primary pill mb-5 mr-10"
+                            data-bs-toggle="modal"
+                            data-bs-target=".default-modal"
+                          >
+                            Info
+                          </a>
+                          <!-- modal -->
+                          <a class="btn btn-xs btn-danger pill mb-5 mr-10" @click="removeAnime(favorite)">Remove</a>
                         </div>
                         <!-- / card-body -->
                       </div>
@@ -159,16 +167,39 @@ export default {
         <!-- / blog -->
       </div>
       <!-- END MAIN CONTAINER -->
-      <!-- START DIALOG -->
-      <dialog id="anime-details">
-        <form method="dialog">
-          <h2>{{ currentAnime.name }}</h2>
-          <img :src="currentAnime.image" alt="" />
-          <p>{{ currentAnime.summary }}</p>
-          <button>Close</button>
-        </form>
-      </dialog>
-      <!-- END DIALOG -->
+      <!-- START MODAL -->
+      <div class="modal fade default-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-center">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ currentAnime.name }}</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <!-- / modal-header -->
+            <div class="modal-body">
+              <img :src="currentAnime.image" alt="" />
+              <br />
+              <br />
+              <p>
+                {{ currentAnime.summary }}
+              </p>
+            </div>
+            <!-- / modal-body -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">
+                <i class="fas fa-times fs-14 mr-5"></i>
+                <span>Close</span>
+              </button>
+            </div>
+            <!-- / modal-footer -->
+          </div>
+          <!-- / modal-content -->
+        </div>
+        <!-- / modal-dialog -->
+      </div>
+      <!-- END MODAL -->
     </body>
   </div>
 
