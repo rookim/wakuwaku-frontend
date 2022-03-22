@@ -82,6 +82,98 @@ export default {
 
 <template>
   <div class="favorites-index">
+    <body>
+      <!-- START MAIN CONTAINER -->
+      <div class="main-container p-0">
+        <section id="blog" class="lg">
+          <div class="container">
+            <h1 v-if="favorites.length != 0">{{ message }}</h1>
+            <h1 v-if="favorites.length == 0">{{ message2 }}</h1>
+            <!-- START SEARCH BAR -->
+            <div class="widget mt-0">
+              <div class="input-group input-w-overlap-btn mb-0">
+                <input
+                  type="text"
+                  class="form-control rounded"
+                  v-model="favoritesFilter"
+                  placeholder="Search your favorites..."
+                />
+                <span class="input-group-btn">
+                  <button class="btn btn-sm btn-primary btn-icon overlapping-btn rounded" type="button">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </span>
+                <!-- / input-group-btn -->
+              </div>
+              <!-- / input-group -->
+            </div>
+            <!-- END SEARCH BAR -->
+            <div class="row">
+              <div class="col-lg-8 tablet-lg-top-45 page-content">
+                <!-- START ROW -->
+                <div class="row">
+                  <!-- START COLUMN -->
+                  <div class="col-md-4" v-for="favorite in filteredFavorites()" v-bind:key="favorite.id">
+                    <div class="hover-card">
+                      <div class="card mb-0">
+                        <img
+                          class="card-img-top"
+                          v-on:click="showAnime(favorite)"
+                          :src="favorite.show.image.medium"
+                          alt=""
+                        />
+                        <div class="card-body text-left">
+                          <h4 class="card-title fs-24 mb-10">
+                            {{ favorite.show.name }}
+                          </h4>
+                          <!-- / post-meta -->
+                          <div v-if="favorite.show.next_ep">
+                            <h5 class="card-title fs-24 mb-10">Season {{ favorite.show.next_ep.season }}</h5>
+                            <p>
+                              Coming up: Episode {{ favorite.show.next_ep.number }} - "{{ favorite.show.next_ep.name }}"
+                            </p>
+                            <p>Airing {{ relativeTime(favorite) }}</p>
+                          </div>
+                          <div v-else>
+                            <small>Next episode information unavailable. Sorry for the inconvenience :(</small>
+                          </div>
+
+                          <a class="btn btn-sm btn-primary" @click="removeAnime(favorite)">Remove</a>
+                        </div>
+                        <!-- / card-body -->
+                      </div>
+                      <!-- / card -->
+                    </div>
+                    <!-- / hover-card -->
+                  </div>
+                  <!-- END COLUMN -->
+                </div>
+                <!-- END ROW -->
+              </div>
+              <!-- / page-content -->
+            </div>
+            <!-- / row -->
+          </div>
+          <!-- / container -->
+        </section>
+        <!-- / blog -->
+      </div>
+      <!-- END MAIN CONTAINER -->
+      <!-- START DIALOG -->
+      <dialog id="anime-details">
+        <form method="dialog">
+          <h2>{{ currentAnime.name }}</h2>
+          <img :src="currentAnime.image" alt="" />
+          <p>{{ currentAnime.summary }}</p>
+          <button>Close</button>
+        </form>
+      </dialog>
+      <!-- END DIALOG -->
+    </body>
+  </div>
+
+  <!-- OLD CODE BEFORE STYLING -->
+  <!-- <div class="favorites-index">
     <h1 v-if="favorites.length != 0">{{ message }}</h1>
     <h1 v-if="favorites.length == 0">{{ message2 }}</h1>
     <p>
@@ -91,7 +183,6 @@ export default {
     <div v-for="favorite in filteredFavorites()" v-bind:key="favorite.id">
       <img v-on:click="showAnime(favorite)" :src="favorite.show.image.medium" alt="" />
       <h2>{{ favorite.show.name }}</h2>
-      <!-- need to make sure there is a next episode. anime could be finished -->
       <div v-if="favorite.show.next_ep">
         <h3>Season {{ favorite.show.next_ep.season }}</h3>
         <p>Coming up: Episode {{ favorite.show.next_ep.number }} - "{{ favorite.show.next_ep.name }}"</p>
@@ -110,5 +201,5 @@ export default {
         <button>Close</button>
       </form>
     </dialog>
-  </div>
+  </div> -->
 </template>
