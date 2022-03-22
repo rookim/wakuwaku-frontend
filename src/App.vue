@@ -19,24 +19,160 @@ export default {
 </script>
 
 <template>
-  <div id="nav">
-    <router-link to="/">Search Anime</router-link>
-    |
-    <router-link v-if="!isLoggedIn" to="/signup">Signup</router-link>
-    |
-    <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
-    |
-    <router-link v-if="isLoggedIn" to="/favorites">Favorites</router-link>
-    |
-    <router-link v-if="isLoggedIn" to="/calendar">Calendar</router-link>
-    |
-    <router-link v-if="isLoggedIn" to="/me">Account</router-link>
-    |
-    <router-link v-if="isLoggedIn" to="/logout">Logout</router-link>
-  </div>
+  <nav class="navbar navbar-expand-lg navbar-inverse bg-black">
+    <div class="container-fluid">
+      <!-- change link -->
+      <router-link class="navbar-brand" to="/">wakuwaku</router-link>
+
+      <button
+        class="navbar-toggler collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbar-toggle-nav-center"
+        aria-controls="navbar-toggle-nav-center"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <!-- / navbar-toggler -->
+
+      <div class="collapse navbar-collapse" id="navbar-toggle-nav-center">
+        <ul class="navbar-nav m-x-auto">
+          <li class="nav-item">
+            <router-link class="nav-link last-menu-item" to="/">SEARCH</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link last-menu-item" v-if="isLoggedIn" to="/favorites">FAVORITES</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link last-menu-item" v-if="isLoggedIn" to="/calendar">CALENDAR</router-link>
+          </li>
+        </ul>
+        <!-- / navbar-nav -->
+
+        <ul class="navbar-button p-0 m-0 ml-30">
+          <li class="nav-item">
+            <router-link class="btn btn-sm btn-white" v-if="!isLoggedIn" to="/SIGNUP">
+              <i class="far fs-16 mr-5 va-middle"></i>
+              <span class="va-middle">SIGNUP</span>
+            </router-link>
+          </li>
+        </ul>
+        <ul class="navbar-button p-0 m-0 ml-30">
+          <li class="nav-item">
+            <router-link class="btn btn-sm btn-white" v-if="!isLoggedIn" to="/login">
+              <i class="far fs-16 mr-5 va-middle"></i>
+              <span class="va-middle">LOGIN</span>
+            </router-link>
+          </li>
+        </ul>
+        <ul class="navbar-button p-0 m-0 ml-30">
+          <li class="nav-item">
+            <router-link class="btn btn-sm btn-white" v-if="isLoggedIn" to="/me">
+              <i class="far fa-heart fs-16 mr-5 va-middle"></i>
+              <span class="va-middle">ACCOUNT</span>
+            </router-link>
+          </li>
+        </ul>
+        <ul class="navbar-button p-0 m-0 ml-30">
+          <li class="nav-item">
+            <router-link class="btn btn-sm btn-white" v-if="isLoggedIn" to="/logout">
+              <i class="far fs-16 mr-5 va-middle"></i>
+              <span class="va-middle">LOGOUT</span>
+            </router-link>
+          </li>
+        </ul>
+        <!-- / navbar-button -->
+      </div>
+      <!-- / navbar-collapse -->
+    </div>
+    <!-- / container-fluid -->
+  </nav>
+
+  <!-- my native code -->
   <div v-if="flashMessage">
     {{ flashMessage }}
     <button v-on:click="flashMessage = ''">Dismiss</button>
   </div>
   <router-view />
+
+  <!-- START FOOTER-WRAPPER -->
+  <div class="footer-wrapper bg-black bt-1 border-dark">
+    <div class="footer-widget-area bg-transparent">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-3">
+            <div class="widget text-center">
+              <ul class="list-unstyled list-has-link menu-list mb-0">
+                <li class="mb-20 fs-14 title-color fw-medium"></li>
+                <li><a href="#x"></a></li>
+                <li><a href="#x"></a></li>
+                <li class="mb-0"><a href="#x"></a></li>
+              </ul>
+              <!-- / list-unstyled -->
+            </div>
+            <!-- / widget -->
+          </div>
+          <!-- / column -->
+
+          <div class="col-xl-6">
+            <div class="widget text-center">
+              <h6 class="widget-title mb-20 fs-14 title-color fw-medium">GET IN TOUCH :)</h6>
+              <a href="https://rookim.github.io/" class="d-block mb-20 fs-26 fw-bold text-white opc-100">
+                rookim.github.io
+              </a>
+              <p>
+                <a href="https://github.com/rookim" class="ext-link mr-20"><i class="fs-20 fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/rookim/" class="text-link mr-20">
+                  <i class="fs-20 fab fa-linkedin"></i>
+                </a>
+                <a href="https://gist.github.com/rookim" class="text-link mr-20">
+                  <i class="fs-20 fab fa-dribbble"></i>
+                </a>
+                <a href="mailto:rookim4@gmail.com" class="text-link mr-20">
+                  <i class="fs-20 far fa-envelope"></i>
+                </a>
+              </p>
+            </div>
+            <!-- / widget -->
+          </div>
+          <!-- / column -->
+
+          <div class="col-xl-3">
+            <div class="widget text-center">
+              <ul class="list-unstyled list-has-link menu-list mb-0">
+                <li class="mb-20 fs-14 title-color fw-medium"></li>
+                <li><a href="#x"></a></li>
+                <li><a href="#x"></a></li>
+                <li class="mb-0"><a href="#x"></a></li>
+              </ul>
+              <!-- / list-unstyled -->
+            </div>
+            <!-- / widget -->
+          </div>
+          <!-- / column -->
+        </div>
+        <!-- / row -->
+      </div>
+      <!-- / container -->
+    </div>
+    <!-- / footer-widget-area -->
+  </div>
+  <!-- END FOOTER-WRAPPER -->
+
+  <!-- START FOOTER -->
+  <footer class="bg-black text-center">
+    <div class="container">
+      <p class="fs-16">
+        © 2022 MIPO by
+        <a href="https://kingstudio.ro" target="_blank">KingStudio</a>
+      </p>
+    </div>
+    <!-- / container -->
+  </footer>
+  <!-- END -->
 </template>

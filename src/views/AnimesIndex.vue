@@ -76,9 +76,6 @@ export default {
     <h1>{{ message }}</h1>
     <input type="text" v-model="searchParams.title" />
     <button v-on:click="submit()">Search</button>
-    <br />
-    <br />
-    <br />
     <div v-if="empty">No anime found :(</div>
     <div v-for="anime in animes" v-bind:key="anime.id">
       <!-- only one of the 2 buttons below show up! -->
