@@ -76,8 +76,9 @@ export default {
     <div class="main-container p-0">
       <section id="blog" class="lg">
         <div class="container">
+          <h1>It's never too late to start a new anime...</h1>
           <div class="row">
-            <div class="col-lg-8 tablet-lg-top-45 page-content">
+            <div class="col-lg-12 tablet-lg-top-45 page-content">
               <!-- START SEARCH BAR -->
               <div class="widget mt-0">
                 <div class="input-group input-w-overlap-btn mb-0">
@@ -89,7 +90,7 @@ export default {
                   />
                   <span class="input-group-btn">
                     <button
-                      class="btn btn-sm btn-primary btn-icon overlapping-btn rounded"
+                      class="btn btn-sm btn-primary pill btn-icon overlapping-btn rounded"
                       type="button"
                       v-on:click="submit()"
                     >
@@ -103,7 +104,7 @@ export default {
               <!-- END SEARCH BAR -->
               <div class="row">
                 <!-- START COLUMN -->
-                <div class="col-md-6 mb-30" v-for="anime in animes" v-bind:key="anime.id">
+                <div class="col-md-4 mb-30" v-for="anime in animes" v-bind:key="anime.id">
                   <div class="hover-card">
                     <!-- START CARD -->
                     <div class="card mb-0">
