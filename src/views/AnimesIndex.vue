@@ -72,35 +72,98 @@ export default {
 </script>
 
 <template>
-  <div class="animes-index">
+  <body>
+    <div class="main-container p-0">
+      <section id="blog" class="lg">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 tablet-lg-top-45 page-content">
+              <!-- START SEARCH BAR -->
+              <div class="widget mt-0">
+                <div class="input-group input-w-overlap-btn mb-0">
+                  <input
+                    type="text"
+                    class="form-control rounded"
+                    v-model="searchParams.title"
+                    placeholder="Search anime..."
+                  />
+                  <span class="input-group-btn">
+                    <button
+                      class="btn btn-sm btn-primary btn-icon overlapping-btn rounded"
+                      type="button"
+                      v-on:click="submit()"
+                    >
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </span>
+                  <!-- / input-group-btn -->
+                </div>
+                <!-- / input-group -->
+              </div>
+              <!-- END SEARCH BAR -->
+              <div class="row">
+                <!-- START COLUMN -->
+                <div class="col-md-6 mb-30" v-for="anime in animes" v-bind:key="anime.id">
+                  <div class="hover-card">
+                    <!-- START CARD -->
+                    <div class="card mb-0">
+                      <img class="card-img-top" @click="showAnime(anime)" :src="anime.show.image.medium" alt="" />
+                      <!-- START CARD BODY -->
+                      <div class="card-body text-left">
+                        <h4 class="card-title fs-24 mb-10">{{ anime.show.name }}</h4>
+                        <!-- / post-meta -->
+                        <p class="fs-14 mb-20">
+                          Coming up: Episode {{ currentAnime.episode }} - "{{ currentAnime.episode_name }} in
+                          {{ relativeTime(currentAnime) }}"
+                        </p>
+                        <p class="fs-14 mb-20">
+                          {{ currentAnime.summary }}
+                        </p>
+                        <a
+                          class="btn btn-sm btn-primary"
+                          v-if="isUser && anime.favorited == false"
+                          v-on:click="addToFavorites(anime)"
+                        >
+                          ♡
+                        </a>
+                        <a
+                          class="btn btn-sm btn-primary"
+                          v-if="isUser && anime.favorited == true"
+                          v-on:click="removeFromFavorites(anime)"
+                        >
+                          ♥
+                        </a>
+                      </div>
+                      <!-- END CARD BODY -->
+                    </div>
+                    <!-- / END CARD -->
+                  </div>
+                </div>
+                <!-- END COLMUN -->
+              </div>
+              <!-- / row -->
+            </div>
+            <!-- / page-content -->
+          </div>
+          <!-- / row -->
+        </div>
+        <!-- / container -->
+      </section>
+      <!-- / blog -->
+    </div>
+    <!-- main-container -->
+  </body>
+
+  <!-- <div class="animes-index">
     <h1>{{ message }}</h1>
     <input type="text" v-model="searchParams.title" />
     <button v-on:click="submit()">Search</button>
     <div v-if="empty">No anime found :(</div>
     <div v-for="anime in animes" v-bind:key="anime.id">
-      <!-- only one of the 2 buttons below show up! -->
-      <!-- button to add to favorites -->
       <button v-if="isUser && anime.favorited == false" v-on:click="addToFavorites(anime)">♡</button>
       <button v-if="isUser && anime.favorited == true" v-on:click="removeFromFavorites(anime)">♥</button>
-      <!-- button to remove from favorites -->
-      <br />
-      <br />
       <img @click="showAnime(anime)" :src="anime.show.image.medium" alt="" />
-      <br />
       <h3>{{ anime.show.name }}</h3>
-      <br />
     </div>
-
-    <dialog id="anime-details">
-      <form method="dialog">
-        <h2>{{ currentAnime.name }}</h2>
-        <h3>Season {{ currentAnime.season }}</h3>
-        <img :src="currentAnime.image" alt="" />
-        <p>{{ currentAnime.summary }}</p>
-        <p>Coming up: Episode {{ currentAnime.episode }} - "{{ currentAnime.episode_name }}"</p>
-        <p>Airing {{ relativeTime(currentAnime) }}</p>
-        <button>Close</button>
-      </form>
-    </dialog>
-  </div>
+  </div> -->
 </template>

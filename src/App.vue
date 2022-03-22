@@ -93,15 +93,16 @@ export default {
     <!-- / container-fluid -->
   </nav>
 
-  <!-- my native code -->
+  <!-- START FLASH MESSAGE  -->
   <div v-if="flashMessage">
     {{ flashMessage }}
     <button v-on:click="flashMessage = ''">Dismiss</button>
   </div>
+  <!-- END FLASH MESSAGE -->
   <router-view />
 
   <!-- START FOOTER-WRAPPER -->
-  <div class="footer-wrapper bg-black bt-1 border-dark">
+  <div class="footer-wrapper bg-body-dark dark">
     <div class="footer-widget-area bg-transparent">
       <div class="container">
         <div class="row">
@@ -165,7 +166,7 @@ export default {
   <!-- END FOOTER-WRAPPER -->
 
   <!-- START FOOTER -->
-  <footer class="bg-black text-center">
+  <footer class="bg-body-dark dark text-center">
     <div class="container">
       <p class="fs-16">
         © 2022 MIPO by
