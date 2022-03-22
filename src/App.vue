@@ -56,7 +56,7 @@ export default {
 
         <ul class="navbar-button p-0 m-0 ml-30">
           <li class="nav-item">
-            <router-link class="btn btn-sm btn-white" v-if="!isLoggedIn" to="/SIGNUP">
+            <router-link class="btn btn-sm btn-white btn-primary pill" v-if="!isLoggedIn" to="/SIGNUP">
               <i class="far fs-16 mr-5 va-middle"></i>
               <span class="va-middle">SIGNUP</span>
             </router-link>
@@ -64,7 +64,7 @@ export default {
         </ul>
         <ul class="navbar-button p-0 m-0 ml-30">
           <li class="nav-item">
-            <router-link class="btn btn-sm btn-white" v-if="!isLoggedIn" to="/login">
+            <router-link class="btn btn-sm btn-white btn-primary pill" v-if="!isLoggedIn" to="/login">
               <i class="far fs-16 mr-5 va-middle"></i>
               <span class="va-middle">LOGIN</span>
             </router-link>
@@ -72,7 +72,7 @@ export default {
         </ul>
         <ul class="navbar-button p-0 m-0 ml-30">
           <li class="nav-item">
-            <router-link class="btn btn-sm btn-white" v-if="isLoggedIn" to="/me">
+            <router-link class="btn btn-sm btn-white btn-primary pill" v-if="isLoggedIn" to="/me">
               <i class="far fa-heart fs-16 mr-5 va-middle"></i>
               <span class="va-middle">ACCOUNT</span>
             </router-link>
@@ -80,7 +80,7 @@ export default {
         </ul>
         <ul class="navbar-button p-0 m-0 ml-30">
           <li class="nav-item">
-            <router-link class="btn btn-sm btn-white" v-if="isLoggedIn" to="/logout">
+            <router-link class="btn btn-sm btn-white btn-primary pill" v-if="isLoggedIn" to="/logout">
               <i class="far fs-16 mr-5 va-middle"></i>
               <span class="va-middle">LOGOUT</span>
             </router-link>
@@ -99,7 +99,9 @@ export default {
     <button v-on:click="flashMessage = ''">Dismiss</button>
   </div>
   <!-- END FLASH MESSAGE -->
-  <router-view />
+  <body>
+    <router-view />
+  </body>
 
   <!-- START FOOTER-WRAPPER -->
   <div class="footer-wrapper bg-body-dark dark">
