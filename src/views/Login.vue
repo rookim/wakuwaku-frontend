@@ -42,11 +42,11 @@ export default {
   <body>
     <div class="main-container p-0">
       <section id="contact" class="lg">
-        <div class="container text-center">
-          <h1>LOGIN</h1>
+        <div class="container">
           <div class="row v-center">
             <!-- / column -->
             <div class="col-lg-5 mx-auto">
+              <h1>Login</h1>
               <div class="promo-box">
                 <form
                   class="needs-validation"
