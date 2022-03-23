@@ -10,6 +10,10 @@ export default {
 
 <template>
   <span class="go-back">
-    <button @click="goBack()">Back</button>
+    <a @click="goBack()" class="btn btn-xs btn-primary pill go-back-button">
+      <span class="fas fa-chevron-left mr-10"></span>
+      <span>Back</span>
+    </a>
+    <!-- <button @click="goBack()">Back</button> -->
   </span>
 </template>
