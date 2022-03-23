@@ -19,6 +19,7 @@ export default {
     submit: function () {
       axios.get("/animes", { params: this.searchParams }).then((response) => {
         console.log("Anime list:", response.data);
+
         this.animes = response.data;
         if (this.animes.length == 0) {
           this.empty = true;
@@ -62,7 +63,7 @@ export default {
       this.currentAnime["episode"] = anime.next_ep.number;
       this.currentAnime["episode_name"] = anime.next_ep.name;
       console.log("Anime:", this.currentAnime);
-      document.querySelector("#anime-details").showModal();
+      // document.querySelector("#anime-details").showModal();
     },
     relativeTime: function (anime) {
       return dayjs(anime.airstamp).from(dayjs());
@@ -73,6 +74,7 @@ export default {
 
 <template>
   <body>
+    <!-- START MAIN CONTAINER -->
     <div class="main-container p-0">
       <section id="blog" class="lg">
         <div class="container">
@@ -102,38 +104,48 @@ export default {
                 <!-- / input-group -->
               </div>
               <!-- END SEARCH BAR -->
+              <div v-if="empty">No anime found :(</div>
               <div class="row">
                 <!-- START COLUMN -->
                 <div class="col-md-4 mb-30" v-for="anime in animes" v-bind:key="anime.id">
                   <div class="hover-card">
                     <!-- START CARD -->
                     <div class="card mb-0">
-                      <img class="card-img-top" @click="showAnime(anime)" :src="anime.show.image.medium" alt="" />
+                      <img
+                        v-on:click="showAnime(anime)"
+                        class="card-img-top"
+                        :src="anime.show.image.medium"
+                        alt=""
+                        data-bs-toggle="modal"
+                        data-bs-target=".default-modal"
+                      />
                       <!-- START CARD BODY -->
-                      <div class="card-body text-left">
+                      <div class="card-body">
                         <h4 class="card-title fs-24 mb-10">{{ anime.show.name }}</h4>
                         <!-- / post-meta -->
                         <p class="fs-14 mb-20">
-                          Coming up: Episode {{ currentAnime.episode }} - "{{ currentAnime.episode_name }} in
-                          {{ relativeTime(currentAnime) }}"
+                          Coming up: Episode {{ anime.next_ep.number }} - "{{ anime.next_ep.name }} in
+                          {{ relativeTime(anime.next_ep) }}"
                         </p>
                         <p class="fs-14 mb-20">
-                          {{ currentAnime.summary }}
+                          {{ anime.summary }}
                         </p>
-                        <a
-                          class="btn btn-sm btn-primary"
-                          v-if="isUser && anime.favorited == false"
-                          v-on:click="addToFavorites(anime)"
-                        >
-                          ♡
-                        </a>
-                        <a
-                          class="btn btn-sm btn-primary"
-                          v-if="isUser && anime.favorited == true"
-                          v-on:click="removeFromFavorites(anime)"
-                        >
-                          ♥
-                        </a>
+                        <div class="favorites-button">
+                          <a
+                            class="btn btn-sm btn-primary pill"
+                            v-if="isUser && anime.favorited == false"
+                            v-on:click="addToFavorites(anime)"
+                          >
+                            ♡
+                          </a>
+                          <a
+                            class="btn btn-sm btn-primary pill"
+                            v-if="isUser && anime.favorited == true"
+                            v-on:click="removeFromFavorites(anime)"
+                          >
+                            ♥
+                          </a>
+                        </div>
                       </div>
                       <!-- END CARD BODY -->
                     </div>
@@ -152,7 +164,41 @@ export default {
       </section>
       <!-- / blog -->
     </div>
-    <!-- main-container -->
+    <!-- END MAIN CONTAINER -->
+    <!-- modal -->
+    <div class="modal fade default-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ currentAnime.name }} (Season {{ currentAnime.season }})</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <!-- / modal-header -->
+          <div class="modal-body">
+            <img :src="currentAnime.image" alt="" />
+            <br />
+            <br />
+            <p>
+              {{ currentAnime.summary }}
+            </p>
+          </div>
+          <!-- / modal-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">
+              <i class="fas fa-times fs-14 mr-5"></i>
+              <span>Close</span>
+            </button>
+          </div>
+          <!-- / modal-footer -->
+        </div>
+        <!-- / modal-content -->
+      </div>
+      <!-- / modal-dialog -->
+    </div>
+    <!-- / modal -->
+    <!-- / default-modal -->
   </body>
 
   <!-- <div class="animes-index">
