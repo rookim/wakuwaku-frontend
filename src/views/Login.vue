@@ -39,7 +39,71 @@ export default {
 </script>
 
 <template>
-  <div class="login">
+  <div class="main-container p-0">
+    <section id="contact" class="lg">
+      <div class="container text-center">
+        <h1>LOGIN</h1>
+        <div class="row v-center">
+          <!-- / column -->
+          <div class="col-lg-5 mx-auto">
+            <div class="promo-box">
+              <form
+                class="needs-validation"
+                id="form-validation5"
+                novalidate="novalidate"
+                v-on:submit.prevent="submit()"
+              >
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input
+                        v-model="newSessionParams.email"
+                        type="text"
+                        class="form-control"
+                        id="contact-subject5"
+                        name="inputSubject5"
+                        placeholder="&#xf2bd; Email"
+                        style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                      />
+                    </div>
+                    <!-- / form-group -->
+                  </div>
+                  <!-- / column -->
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input
+                        v-model="newSessionParams.password"
+                        type="password"
+                        class="form-control"
+                        id="contact-subject5"
+                        name="inputSubject5"
+                        placeholder="&#xf059; Password"
+                        style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                      />
+                    </div>
+                    <!-- / form-group -->
+                  </div>
+                  <!-- / column -->
+                </div>
+                <!-- / row -->
+
+                <input v-on:click="submit()" type="submit" class="btn btn-primary btn-submit" value="Submit" />
+              </form>
+              <!-- / form-group -->
+            </div>
+            <!-- / promo-box -->
+          </div>
+          <!-- / column -->
+        </div>
+        <!-- / row -->
+      </div>
+      <!-- / container -->
+    </section>
+    <!-- / contact -->
+  </div>
+
+  <!-- OLD CODE -->
+  <!-- <div class="login">
     <form v-on:submit.prevent="submit()">
       <h1>Login</h1>
       <ul>
@@ -55,5 +119,5 @@ export default {
       </div>
       <input type="submit" value="Login!" />
     </form>
-  </div>
+  </div> -->
 </template>
