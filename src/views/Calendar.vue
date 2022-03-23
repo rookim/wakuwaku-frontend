@@ -135,14 +135,12 @@ export default {
 <template>
   <body>
     <!-- START HEADER -->
-    <header
-      class="xl v-center bg-img jarallax"
-      data-jarallax
-      data-speed="0.8"
-      style="background-image: url(https://kingstudio.ro/demos/mipo/assets/images/ph-bg4.jpg)"
-    >
-      <div class="container text-center">
-        <h1 class="page-title text-white mb-0">{{ loggedInUser }}'s Calendar</h1>
+    <header class="lg bg-black v-center">
+      <div class="container">
+        <div class="header-content text-center">
+          <h2 class="page-title mb-40 text-white">{{ loggedInUser }}'s Calendar</h2>
+        </div>
+        <!-- / header-content -->
       </div>
       <!-- / container -->
     </header>
