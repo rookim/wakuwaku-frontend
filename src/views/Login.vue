@@ -54,6 +54,9 @@ export default {
                 v-on:submit.prevent="submit()"
               >
                 <div class="row">
+                  <ul>
+                    <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+                  </ul>
                   <div class="col-md-12">
                     <div class="form-group">
                       <input
