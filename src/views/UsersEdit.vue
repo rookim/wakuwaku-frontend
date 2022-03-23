@@ -37,7 +37,127 @@ export default {
 </script>
 
 <template>
-  <div class="users-edit">
+  <body>
+    <div class="main-container p-0">
+      <section id="contact" class="lg">
+        <div class="container">
+          <div class="row v-center">
+            <!-- / column -->
+            <div class="col-lg-5 mx-auto">
+              <GoBack />
+              <div class="promo-box">
+                <form
+                  class="needs-validation"
+                  id="form-validation5"
+                  novalidate="novalidate"
+                  v-on:submit.prevent="submit()"
+                >
+                  <ul>
+                    <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+                  </ul>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input
+                          v-model="editUserParams.username"
+                          type="text"
+                          class="form-control"
+                          id="contact-name5"
+                          name="inputName5"
+                          placeholder="&#xf2bd;  Username"
+                          required=""
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input
+                          v-model="editUserParams.email"
+                          type="email"
+                          class="form-control"
+                          id="contact-email5"
+                          name="inputEmail5"
+                          placeholder="&#xf0e0; Email"
+                          required=""
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input
+                          v-model="editUserParams.phone_number"
+                          type="text"
+                          class="form-control"
+                          id="contact-subject5"
+                          name="inputSubject5"
+                          placeholder="&#xf4ad; Phone Number"
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input
+                          v-model="editUserParams.password"
+                          type="password"
+                          class="form-control"
+                          id="contact-subject5"
+                          name="inputSubject5"
+                          placeholder="&#xf059; Password"
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input
+                          v-model="editUserParams.password_confirmation"
+                          type="password"
+                          class="form-control"
+                          id="contact-subject5"
+                          name="inputSubject5"
+                          placeholder="&#xf059; Password Confirmation"
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+                  </div>
+                  <!-- / row -->
+                  <input type="submit" class="btn btn-primary pill btn-submit" value="Submit" />
+                </form>
+                <!-- / form-group -->
+              </div>
+              <!-- / promo-box -->
+            </div>
+            <!-- / column -->
+          </div>
+          <!-- / row -->
+        </div>
+        <!-- / container -->
+      </section>
+      <!-- / contact -->
+    </div>
+    <!-- main-container -->
+  </body>
+
+  <!-- OLD CODE -->
+  <!-- <div class="users-edit">
     <GoBack />
     <form v-on:submit.prevent="submit()">
       <h1>Edit Account</h1>
@@ -67,7 +187,5 @@ export default {
       <br />
       <input type="submit" value="Update" />
     </form>
-  </div>
+  </div> -->
 </template>
-
-<style></style>
