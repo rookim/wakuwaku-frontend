@@ -61,35 +61,175 @@ export default {
 </script>
 
 <template>
-  <div class="signup">
+  <body>
+    <div class="main-container p-0">
+      <section id="contact" class="lg">
+        <div class="container">
+          <div class="row v-center">
+            <div class="col-lg-8 mx-auto">
+              <h1>Signup</h1>
+              <div class="promo-box">
+                <form
+                  class="needs-validation"
+                  id="form-validation5"
+                  novalidate="novalidate"
+                  v-on:submit.prevent="submit()"
+                >
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input
+                          v-model="newUserParams.username"
+                          type="text"
+                          class="form-control"
+                          id="contact-name5"
+                          name="inputName5"
+                          placeholder="&#xf2bd;  Username"
+                          required=""
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                        <!-- ERROR HANDLING -->
+                        <div v-if="v$.newUserParams.username.$error">
+                          {{ v$.newUserParams.username.required.$message }}
+                        </div>
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input
+                          v-model="newUserParams.email"
+                          type="email"
+                          class="form-control"
+                          id="contact-email5"
+                          name="inputEmail5"
+                          placeholder="&#xf0e0; Email"
+                          required=""
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                        <!-- ERROR HANDLING -->
+                        <div v-if="v$.newUserParams.email.$error">
+                          {{ v$.newUserParams.email.email.$message }}
+                        </div>
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input
+                          v-model="newUserParams.phone_number"
+                          type="text"
+                          class="form-control"
+                          id="contact-subject5"
+                          name="inputSubject5"
+                          placeholder="&#xf4ad; Phone Number (optional)"
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input
+                          v-model="newUserParams.password"
+                          type="password"
+                          class="form-control"
+                          id="contact-subject5"
+                          name="inputSubject5"
+                          placeholder="&#xf059; Password"
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                        <!-- ERROR HANDLING -->
+                        <div v-if="v$.newUserParams.password.$error">
+                          <small>Password must contain:</small>
+                          <br />
+                          <small>6 characters minimum</small>
+                          <br />
+                          <small>At least 1 special character: ! ? @ $</small>
+                          <br />
+                          <small>At least 1 uppercase letter</small>
+                          <br />
+                          <small>At least 1 lowercase letter</small>
+                          <br />
+                          <small>At least 1 number</small>
+                        </div>
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input
+                          v-model="newUserParams.password_confirmation"
+                          type="password"
+                          class="form-control"
+                          id="contact-subject5"
+                          name="inputSubject5"
+                          placeholder="&#xf059; Password Confirmation"
+                          style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
+                        />
+                        <!-- ERROR HANDLING not by Vuelidate -->
+                        <small
+                          v-if="
+                            newUserParams.password_confirmation &&
+                            newUserParams.password !== newUserParams.password_confirmation
+                          "
+                        >
+                          Passwords must match!
+                        </small>
+                      </div>
+                      <!-- / form-group -->
+                    </div>
+                    <!-- / column -->
+                  </div>
+                  <!-- / row -->
+
+                  <input type="submit" class="btn btn-primary btn-submit" value="Submit" />
+                </form>
+                <!-- / form-group -->
+              </div>
+              <!-- / promo-box -->
+            </div>
+            <!-- / column -->
+          </div>
+          <!-- / row -->
+        </div>
+        <!-- / container -->
+      </section>
+      <!-- / contact -->
+    </div>
+    <!-- main-container -->
+  </body>
+
+  <!-- OLD CODE -->
+  <!-- <div class="signup">
     <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
       <div>
         <label>Email:</label>
         <input type="text" v-model="newUserParams.email" />
-        <!-- ERROR HANDLING -->
-        <!-- checks for validity of email address entered -->
         <div v-if="v$.newUserParams.email.$error">
           {{ v$.newUserParams.email.email.$message }}
         </div>
       </div>
-      <br />
       <div>
         <label>Username:</label>
         <input type="text" v-model="newUserParams.username" />
-        <!-- ERROR HANDLING -->
+
         <div v-if="v$.newUserParams.username.$error">{{ v$.newUserParams.username.required.$message }}</div>
       </div>
-      <br />
       <div>
         <label>Phone number (optional):</label>
         <input type="text" v-model="newUserParams.phone_number" />
       </div>
-      <br />
       <div>
         <label>Password:</label>
         <input type="password" v-model="newUserParams.password" />
-        <!-- ERROR HANDLING -->
         <div v-if="v$.newUserParams.password.$error">
           <small>Password must contain:</small>
           <br />
@@ -104,11 +244,9 @@ export default {
           <small>At least 1 number</small>
         </div>
       </div>
-      <br />
       <div>
         <label>Confirm password:</label>
         <input type="password" v-model="newUserParams.password_confirmation" />
-        <br />
         <small
           v-if="newUserParams.password_confirmation && newUserParams.password !== newUserParams.password_confirmation"
         >
@@ -118,8 +256,7 @@ export default {
       <ul>
         <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
       </ul>
-      <br />
       <input type="submit" value="Create Account" />
     </form>
-  </div>
+  </div> -->
 </template>
