@@ -32,6 +32,22 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
+    deleteUser: function () {
+      if (confirm("Are you sure you want to delete your account? This can't be undone!")) {
+        axios
+          .delete("/users/me")
+          .then((response) => {
+            console.log(response.data);
+            this.$router.push("/signup");
+            localStorage.removeItem("jwt");
+            localStorage.removeItem("username");
+            localStorage.removeItem("accessToken");
+          })
+          .catch((error) => {
+            this.errors = error.response.data.errors;
+          });
+      }
+    },
   },
 };
 </script>
@@ -45,6 +61,10 @@ export default {
             <!-- / column -->
             <div class="col-lg-5 mx-auto">
               <GoBack />
+              <a @click="deleteUser()" class="btn btn-xs btn-danger pill go-back-button float-end">
+                <span class="fas mx-auto"></span>
+                <span>DELETE</span>
+              </a>
               <div class="promo-box">
                 <form
                   class="needs-validation"
