@@ -149,10 +149,8 @@ export default {
     <br />
     <!-- START GOOGLE LOGIN/LOGOUT -->
     <div id="google-buttons">
-      <a class="btn btn-primary pill btn-outline-primary" @click="handleClickSignIn" v-if="!accessToken">
-        Google Sign In
-      </a>
-      <a class="btn btn-primary pill btn-outline-primary" @click="handleClickSignOut" v-if="accessToken">
+      <a class="btn btn-info pill btn-outline-primary" @click="handleClickSignIn" v-if="!accessToken">Google Sign In</a>
+      <a class="btn btn-info pill btn-outline-primary" @click="handleClickSignOut" v-if="accessToken">
         Google Sign Out
       </a>
     </div>
