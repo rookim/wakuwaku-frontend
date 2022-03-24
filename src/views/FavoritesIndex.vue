@@ -108,59 +108,36 @@ export default {
               <!-- / input-group -->
             </div>
             <!-- END SEARCH BAR -->
-            <div class="row">
-              <div class="col-lg-12 tablet-lg-top-45 page-content">
-                <!-- START ROW -->
-                <div class="row">
-                  <!-- START COLUMN -->
-                  <div class="col-md-3" v-for="favorite in filteredFavorites()" v-bind:key="favorite.id">
-                    <div class="hover-card">
-                      <div class="card mb-0">
-                        <img
-                          class="card-img-top"
-                          v-on:click="showAnime(favorite)"
-                          :src="favorite.show.image.medium"
-                          alt=""
-                        />
-                        <div class="card-body text-left">
-                          <h4 class="card-title fs-24 mb-10">
-                            {{ favorite.show.name }}
-                          </h4>
-                          <!-- / post-meta -->
-                          <div v-if="favorite.show.next_ep">
-                            <h5 class="card-title fs-24 mb-10">Season {{ favorite.show.next_ep.season }}</h5>
-                            <p>
-                              Coming up: Episode {{ favorite.show.next_ep.number }} - "{{ favorite.show.next_ep.name }}"
-                            </p>
-                            <p>Airing {{ relativeTime(favorite) }}</p>
-                          </div>
-                          <div v-else>
-                            <small>Next episode information unavailable. Sorry for the inconvenience :(</small>
-                          </div>
-                          <a
-                            v-on:click="showAnime(favorite)"
-                            class="btn btn-xs btn-primary pill mb-5 mr-10"
-                            data-bs-toggle="modal"
-                            data-bs-target=".default-modal"
-                          >
-                            Info
-                          </a>
-                          <!-- modal -->
-                          <a class="btn btn-xs btn-danger pill mb-5 mr-10" @click="removeAnime(favorite)">Remove</a>
-                        </div>
-                        <!-- / card-body -->
-                      </div>
-                      <!-- / card -->
+            <!-- START REGULAR OLE RELIABLE -->
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+              <div class="col" v-for="favorite in filteredFavorites()" v-bind:key="favorite.id">
+                <div class="card h-100 mb-0">
+                  <img
+                    data-bs-toggle="modal"
+                    data-bs-target=".default-modal"
+                    class="card-img-top"
+                    v-on:click="showAnime(favorite)"
+                    :src="favorite.show.image.medium"
+                    alt=""
+                  />
+                  <div class="card-body pt-3 pb-3 d-flex flex-column">
+                    <h5 class="card-title fs-22">{{ favorite.show.name }}</h5>
+                    <div v-if="favorite.show.next_ep">
+                      <h5 class="card-title text-secondary fs-18 mb-10">Season {{ favorite.show.next_ep.season }}</h5>
+                      <p>Coming up: Episode {{ favorite.show.next_ep.number }} - "{{ favorite.show.next_ep.name }}"</p>
+                      <p>Airing {{ relativeTime(favorite) }}</p>
                     </div>
-                    <!-- / hover-card -->
+                    <div v-else>
+                      <small>Next episode information unavailable. Sorry for the inconvenience :(</small>
+                    </div>
+                    <div class="remove-from-favorites-button mt-auto">
+                      <a class="btn btn-xs btn-danger pill mb-5 mr-10" @click="removeAnime(favorite)">Remove</a>
+                    </div>
                   </div>
-                  <!-- END COLUMN -->
                 </div>
-                <!-- END ROW -->
               </div>
-              <!-- / page-content -->
             </div>
-            <!-- / row -->
+            <!-- END REGULAR OLD RELIABLE -->
           </div>
           <!-- / container -->
         </section>
