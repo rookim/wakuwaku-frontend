@@ -1,3 +1,14 @@
 a.go-back-button {
   margin-bottom: 25px;
 }
+.favorites-button {
+  display: flex;
+  justify-content: center;
+}
+.google-calendar {
+  margin: 150px;
+  margin-top: 50px;
+}
+#google-buttons {
+  text-align: center;
+}
