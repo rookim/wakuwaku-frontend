@@ -130,7 +130,7 @@ export default {
                           class="form-control"
                           id="contact-subject5"
                           name="inputSubject5"
-                          placeholder="&#xf059; Password Confirmation"
+                          placeholder="&#xf059; Confirm Password"
                           style="font-family: 'Font Awesome 5 Free', sans-serif !important; font-weight: 400"
                         />
                       </div>
