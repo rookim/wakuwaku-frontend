@@ -21,8 +21,9 @@ export default {
 <template>
   <nav class="navbar navbar-expand-lg navbar-inverse bg-black">
     <div class="container-fluid">
-      <!-- change link -->
-      <router-link class="navbar-brand" to="/">wakuwaku</router-link>
+      <div class="ml-auto">
+        <router-link class="navbar-brand" to="/">wakuwaku</router-link>
+      </div>
 
       <button
         class="navbar-toggler collapsed"
@@ -41,7 +42,7 @@ export default {
       <!-- / navbar-toggler -->
 
       <div class="collapse navbar-collapse" id="navbar-toggle-nav-center">
-        <ul class="navbar-nav m-x-auto">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <router-link class="nav-link last-menu-item" to="/">SEARCH</router-link>
           </li>
@@ -53,39 +54,36 @@ export default {
           </li>
         </ul>
         <!-- / navbar-nav -->
-
-        <ul class="navbar-button p-0 m-0 ml-30">
-          <li class="nav-item">
-            <router-link class="btn btn-sm btn-white btn-primary pill" v-if="!isLoggedIn" to="/SIGNUP">
-              <i class="far fs-16 mr-5 va-middle"></i>
-              <span class="va-middle">SIGNUP</span>
-            </router-link>
-          </li>
-        </ul>
-        <ul class="navbar-button p-0 m-0 ml-30">
-          <li class="nav-item">
-            <router-link class="btn btn-sm btn-white btn-primary pill" v-if="!isLoggedIn" to="/login">
-              <i class="far fs-16 mr-5 va-middle"></i>
-              <span class="va-middle">LOGIN</span>
-            </router-link>
-          </li>
-        </ul>
-        <ul class="navbar-button p-0 m-0 ml-30">
-          <li class="nav-item">
-            <router-link class="btn btn-sm btn-white btn-primary pill" v-if="isLoggedIn" to="/me">
-              <i class="far fa-heart fs-16 mr-5 va-middle"></i>
-              <span class="va-middle">ACCOUNT</span>
-            </router-link>
-          </li>
-        </ul>
-        <ul class="navbar-button p-0 m-0 ml-30">
-          <li class="nav-item">
-            <router-link class="btn btn-sm btn-white btn-primary pill" v-if="isLoggedIn" to="/logout">
-              <i class="far fs-16 mr-5 va-middle"></i>
-              <span class="va-middle">LOGOUT</span>
-            </router-link>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse flex-grow-1 text-right">
+          <ul class="navbar-nav ms-auto" v-if="!isLoggedIn">
+            <li class="navbar-button nav-right-need-space">
+              <router-link class="btn btn-sm btn-white btn-primary pill" to="/SIGNUP">
+                <i class="far fs-16 mr-5 va-middle"></i>
+                <span class="va-middle">SIGNUP</span>
+              </router-link>
+            </li>
+            <li class="navbar-button">
+              <router-link class="btn btn-sm btn-white btn-primary pill" to="/login">
+                <i class="far fs-16 mr-5 va-middle"></i>
+                <span class="va-middle">LOGIN</span>
+              </router-link>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto" v-if="isLoggedIn">
+            <li class="navbar-button nav-right-need-space">
+              <router-link class="btn btn-sm btn-white btn-primary pill" to="/me">
+                <i class="far fa-heart fs-16 mr-5 va-middle"></i>
+                <span class="va-middle">ACCOUNT</span>
+              </router-link>
+            </li>
+            <li class="navbar-button">
+              <router-link class="btn btn-sm btn-white btn-primary pill" to="/logout">
+                <i class="far fs-16 mr-5 va-middle"></i>
+                <span class="va-middle">LOGOUT</span>
+              </router-link>
+            </li>
+          </ul>
+        </div>
         <!-- / navbar-button -->
       </div>
       <!-- / navbar-collapse -->

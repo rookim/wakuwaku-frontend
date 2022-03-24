@@ -12,3 +12,15 @@ a.go-back-button {
 #google-buttons {
   text-align: center;
 }
+.remove-from-favorites-button {
+  display: flex;
+  justify-content: center;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.nav-right-need-space {
+  margin-right: 20px;
+}
