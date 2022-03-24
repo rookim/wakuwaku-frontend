@@ -92,10 +92,10 @@ export default {
   </nav>
 
   <!-- START FLASH MESSAGE  -->
-  <div v-if="flashMessage">
+  <!-- <div v-if="flashMessage">
     {{ flashMessage }}
-    <button v-on:click="flashMessage = ''">Dismiss</button>
-  </div>
+    <button v-on:click="flashMessage = null">Dismiss</button>
+  </div> -->
   <!-- END FLASH MESSAGE -->
   <body>
     <router-view />
