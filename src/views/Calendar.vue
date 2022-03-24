@@ -145,24 +145,22 @@ export default {
       <!-- / container -->
     </header>
     <!-- END HEADER -->
+    <br />
+    <br />
+    <!-- START GOOGLE LOGIN/LOGOUT -->
     <div id="google-buttons">
-      <a
-        class="btn btn-primary pill btn-outline-primary"
-        @click="handleClickSignIn"
-        :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized"
-      >
+      <a class="btn btn-primary pill btn-outline-primary" @click="handleClickSignIn" v-if="!accessToken">
         Google Sign In
       </a>
-      <a
-        class="btn btn-primary pill btn-outline-primary"
-        @click="handleClickSignOut"
-        :disabled="!Vue3GoogleOauth.isAuthorized"
-      >
+      <a class="btn btn-primary pill btn-outline-primary" @click="handleClickSignOut" v-if="accessToken">
         Google Sign Out
       </a>
     </div>
+    <!-- END GOOGLE LOGIN/LOGOUT -->
   </body>
-  <FullCalendar :options="calendarOptions" />
+  <div class="google-calendar">
+    <FullCalendar :options="calendarOptions" />
+  </div>
 
   <!-- ORIGINAL CODE -->
   <!-- <div>
