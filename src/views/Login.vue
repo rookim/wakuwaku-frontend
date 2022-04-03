@@ -55,9 +55,7 @@ export default {
                   v-on:submit.prevent="submit()"
                 >
                   <div class="row">
-                    <ul>
-                      <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
-                    </ul>
+                    <small>Demo account: test@test.com</small>
                     <div class="col-md-12">
                       <div class="form-group">
                         <input
@@ -73,6 +71,7 @@ export default {
                       <!-- / form-group -->
                     </div>
                     <!-- / column -->
+                    <small>Password: password</small>
                     <div class="col-md-12">
                       <div class="form-group">
                         <input
@@ -96,6 +95,9 @@ export default {
                 <!-- / form-group -->
               </div>
               <!-- / promo-box -->
+              <ul>
+                <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
+              </ul>
             </div>
             <!-- / column -->
           </div>
