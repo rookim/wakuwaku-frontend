@@ -124,8 +124,8 @@ export default {
                         <h4 class="card-title fs-24 mb-10">{{ anime.show.name }}</h4>
                         <!-- / post-meta -->
                         <p class="fs-14 mb-20">
-                          Coming up: Episode {{ anime.next_ep.number }} - "{{ anime.next_ep.name }} in
-                          {{ relativeTime(anime.next_ep) }}"
+                          Coming up: Episode {{ anime.next_ep.number }} - "{{ anime.next_ep.name }}"
+                          {{ relativeTime(anime.next_ep) }}
                         </p>
                         <p class="fs-14 mb-20">
                           {{ anime.summary }}
