@@ -28,8 +28,7 @@ export default {
     if (this.accessToken) {
       this.updateCalendar();
     }
-    // make a call to favorites user's favorites index and have it automatically added to events list
-    // EXTREMELY SLOW!!
+    // make a call to my backend to retrieve favorites list
     axios.get("/favorites").then((response) => {
       console.log(response.data);
       response.data.forEach((event) => {
@@ -47,7 +46,7 @@ export default {
         aspectRatio: 2.2,
         initialView: "dayGridMonth",
         events: [],
-        // this function allows for the user to click on an event which results in an alert popup window with full information
+        // user can click to view more information
         eventClick: function (info) {
           alert(info.event.title + " at " + info.event.start);
         },
