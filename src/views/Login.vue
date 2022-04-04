@@ -71,7 +71,7 @@ export default {
                       <!-- / form-group -->
                     </div>
                     <!-- / column -->
-                    <small>Password: password</small>
+                    <small>Password: !Wakuwaku0</small>
                     <div class="col-md-12">
                       <div class="form-group">
                         <input
