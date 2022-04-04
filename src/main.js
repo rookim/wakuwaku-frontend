@@ -5,7 +5,7 @@ import axios from "axios";
 import GAuth from "vue3-google-oauth2";
 
 axios.defaults.baseURL =
-  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://waku-waku.herokuapp.com/";
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://waku-waku.herokuapp.com";
 
 var jwt = localStorage.getItem("jwt");
 if (jwt) {
