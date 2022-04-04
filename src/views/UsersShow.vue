@@ -59,10 +59,9 @@ export default {
 
                 <div class="spacer spacer-line-fw border-faded">&nbsp;</div>
 
-                <!-- <router-link v-if="currentUser.id !== 3" to="/me/edit" class="btn btn-lg btn-primary pill ml-0 m-5">
+                <router-link v-if="currentUser.id !== 3" to="/me/edit" class="btn btn-lg btn-primary pill ml-0 m-5">
                   Edit
-                </router-link> -->
-                <router-link to="/me/edit" class="btn btn-lg btn-primary pill ml-0 m-5">Edit</router-link>
+                </router-link>
               </div>
               <!-- / promo-box -->
             </div>
