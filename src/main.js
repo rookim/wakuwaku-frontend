@@ -13,7 +13,7 @@ if (jwt) {
 }
 const gAuthOptions = {
   clientId: "997534777916-v61411mc9t2ukk3p8rc6opmui1veqq2o.apps.googleusercontent.com",
-  scope: "profile email https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events",
+  scope: "profile email https://www.googleapis.com/auth/calendar.events",
   prompt: "consent",
   fetch_basic_profile: true,
 };
