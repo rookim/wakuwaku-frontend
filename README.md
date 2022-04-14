@@ -1,3 +1,3 @@
 # Welcome to wakuwaku's Frontend App!
 
-Made with ![vuejs](./vuedotjs.pdf)
+Made with [![vue.js icon](./vuedotjs.pdf)]
