@@ -10,7 +10,9 @@ My main motivation behind building this app was wanting to have fun. Now don't g
 
 wakuwaku (all lowercase) is a program that allows users to make an account to easily keep track of all the upcoming episodes in their favorites list. As such, it is primarily for anime watchers who enjoy keeping up with current anime. For me personally, I am usually watching anywhere from 7 to 9 ongoing anime (depending on the season), and it's hard to remember exactly when episodes of each anime I'm watching airs. So, I wanted a place where I can easily see that information.
 
-Welcome to wakuwaku!
+_Welcome to wakuwaku!_
+
+You can watch [this video](https://vimeo.com/697800031) where I demo wakuwaku in its entirety if you don't feel like reading the wall of text below ㅇㅈㅇ
 
 ## **Name Origins**
 
