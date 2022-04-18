@@ -2,6 +2,10 @@
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" height="35"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" height="40" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="35" />
 
+## **Check It Out!**
+
+wakuwaku is officially _[deployed](https://waku-waku.netlify.app/)_! You can either click on that link, or type in this URL: https://waku-waku.netlify.app.
+
 ## **Overview**
 
 This is the codebase for the frontend of my web app wakuwaku. It is a part of my capstone project during my time at the Actualize Coding Bootcamp. You can also check out the [backend](https://github.com/rookim/wakuwaku-api)!
